@@ -20,13 +20,13 @@
     </span>
   </div>
 
-  <nav class="sub-tabs" data-subtab-group="combat">
-    <button type="button" class="active" data-subtab="combat-main">{{localize "ABF.Combat.FichaCombate"}}</button>
-    <button type="button" data-subtab="combat-cap">{{localize "ABF.Combat.Capacidades"}}</button>
+  <nav class="abf-tabs secondary-tab" data-group="combat">
+    <button type="button" class="active" data-tab="combat-main">{{localize "ABF.Combat.FichaCombate"}}</button>
+    <button type="button" data-tab="combat-cap">{{localize "ABF.Combat.Capacidades"}}</button>
   </nav>
 
   {{!-- Sub-tab 1: Ficha de combate --}}
-  <div class="subtab-section active" data-subtab-content="combat-main">
+  <div class="tab active" data-group="combat" data-tab="combat-main">
 
     <div class="combat-grid">
 
@@ -182,7 +182,7 @@
   </div>
 
   {{!-- Sub-tab 2: Capacidades --}}
-  <div class="subtab-section" data-subtab-content="combat-cap">
+  <div class="tab" data-group="combat" data-tab="combat-cap">
 
     <div class="section-box">
       <div class="section-title">{{localize "ABF.Combat.HabilidadesEspeciales"}}</div>

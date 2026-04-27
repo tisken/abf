@@ -4,12 +4,12 @@
     <span>{{localize "ABF.Ki.CM"}}: <strong>{{system.domine.martialKnowledge.used.value}}</strong>/{{system.domine.martialKnowledge.max.value}}</span>
   </div>
 
-  <nav class="sub-tabs" data-subtab-group="ki">
-    <button type="button" class="active" data-subtab="ki-resumen">{{localize "ABF.Ki.Resumen"}}</button>
-    <button type="button" data-subtab="ki-hab">{{localize "ABF.Ki.Habilidades"}}</button>
+  <nav class="abf-tabs secondary-tab" data-group="ki">
+    <button type="button" class="active" data-tab="ki-resumen">{{localize "ABF.Ki.Resumen"}}</button>
+    <button type="button" data-tab="ki-hab">{{localize "ABF.Ki.Habilidades"}}</button>
   </nav>
 
-  <div class="subtab-section active" data-subtab-content="ki-resumen">
+  <div class="tab active" data-group="ki" data-tab="ki-resumen">
     <div class="section-box">
       <div class="section-title ki">{{localize "ABF.Ki.Acumulacion"}}</div>
       <table class="compact-table">
@@ -48,7 +48,7 @@
     </div>
   </div>
 
-  <div class="subtab-section" data-subtab-content="ki-hab">
+  <div class="tab" data-group="ki" data-tab="ki-hab">
     <div class="section-box">
       <div class="section-title ki">{{localize "ABF.Ki.Habilidades"}}</div>
       <div class="item-list">

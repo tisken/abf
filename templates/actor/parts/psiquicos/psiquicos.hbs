@@ -4,12 +4,12 @@
     <span>{{localize "ABF.Psi.Potencial"}}: <strong>{{system.psychic.psychicPotential.final.value}}</strong></span>
   </div>
 
-  <nav class="sub-tabs" data-subtab-group="psiquicos">
-    <button type="button" class="active" data-subtab="psi-resumen">{{localize "ABF.Psi.Resumen"}}</button>
-    <button type="button" data-subtab="psi-poderes">{{localize "ABF.Psi.Poderes"}}</button>
+  <nav class="abf-tabs secondary-tab" data-group="psiquicos">
+    <button type="button" class="active" data-tab="psi-resumen">{{localize "ABF.Psi.Resumen"}}</button>
+    <button type="button" data-tab="psi-poderes">{{localize "ABF.Psi.Poderes"}}</button>
   </nav>
 
-  <div class="subtab-section active" data-subtab-content="psi-resumen">
+  <div class="tab active" data-group="psiquicos" data-tab="psi-resumen">
     <div class="combat-grid">
       <div class="section-box">
         <div class="section-title psychic">{{localize "ABF.Psi.ProyPsiquica"}}</div>
@@ -39,7 +39,7 @@
     </div>
   </div>
 
-  <div class="subtab-section" data-subtab-content="psi-poderes">
+  <div class="tab" data-group="psiquicos" data-tab="psi-poderes">
     <div class="section-box">
       <div class="section-title psychic">{{localize "ABF.Psi.Poderes"}}</div>
       <div class="item-list">

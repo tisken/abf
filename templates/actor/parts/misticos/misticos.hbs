@@ -5,14 +5,14 @@
     <span>{{localize "ABF.Mist.Mantenido"}}: <strong>{{system.mystic.zeonMaintained.value}}</strong></span>
   </div>
 
-  <nav class="sub-tabs" data-subtab-group="mistico">
-    <button type="button" class="active" data-subtab="mist-resumen">{{localize "ABF.Mist.Resumen"}}</button>
-    <button type="button" data-subtab="mist-conjuros">{{localize "ABF.Mist.Conjuros"}}</button>
-    <button type="button" data-subtab="mist-innata">{{localize "ABF.Mist.MagiaInnata"}}</button>
-    <button type="button" data-subtab="mist-arbol">{{localize "ABF.Mist.Arbol"}}</button>
+  <nav class="abf-tabs secondary-tab" data-group="mistico">
+    <button type="button" class="active" data-tab="mist-resumen">{{localize "ABF.Mist.Resumen"}}</button>
+    <button type="button" data-tab="mist-conjuros">{{localize "ABF.Mist.Conjuros"}}</button>
+    <button type="button" data-tab="mist-innata">{{localize "ABF.Mist.MagiaInnata"}}</button>
+    <button type="button" data-tab="mist-arbol">{{localize "ABF.Mist.Arbol"}}</button>
   </nav>
 
-  <div class="subtab-section active" data-subtab-content="mist-resumen">
+  <div class="tab active" data-group="mistico" data-tab="mist-resumen">
     <div class="combat-grid">
       <div class="section-box">
         <div class="section-title magic">{{localize "ABF.Mist.ProyMagica"}}</div>
@@ -67,19 +67,19 @@
     </div>
   </div>
 
-  <div class="subtab-section" data-subtab-content="mist-conjuros">
+  <div class="tab" data-group="mistico" data-tab="mist-conjuros">
     <div class="section-box"><div class="section-title magic">{{localize "ABF.Mist.Conjuros"}}</div>
       <div class="item-list">{{#each spells as |sp|}}<div class="item-row">{{sp.name}} — Nv {{sp.system.level.value}}</div>{{/each}}</div>
     </div>
   </div>
 
-  <div class="subtab-section" data-subtab-content="mist-innata">
+  <div class="tab" data-group="mistico" data-tab="mist-innata">
     <div class="section-box"><div class="section-title magic">{{localize "ABF.Mist.MagiaInnata"}}</div>
       <p class="placeholder">Tabla de magia innata — Fase posterior</p>
     </div>
   </div>
 
-  <div class="subtab-section" data-subtab-content="mist-arbol">
+  <div class="tab" data-group="mistico" data-tab="mist-arbol">
     <div class="section-box"><div class="section-title magic">{{localize "ABF.Mist.Arbol"}}</div>
       <p class="placeholder">Árbol de magia — Fase posterior</p>
     </div>

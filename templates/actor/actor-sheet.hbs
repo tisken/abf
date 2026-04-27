@@ -1,0 +1,77 @@
+<header class="sheet-header">
+  <div class="header-bar">
+    <img class="header-portrait" src="{{actor.img}}" data-edit="img" />
+    <input class="header-name" type="text" name="name" value="{{actor.name}}" />
+    <div class="header-vitals">
+      <div class="vital-box"><label>PV</label>
+        <input type="number" name="system.characteristics.secondaries.lifePoints.value" value="{{system.characteristics.secondaries.lifePoints.value}}" />
+        <span>/{{system.characteristics.secondaries.lifePoints.max}}</span>
+      </div>
+      <div class="vital-box"><label>{{localize "ABF.Resumen.Turno"}}</label>
+        <strong>{{system.characteristics.secondaries.initiative.final.value}}</strong>
+      </div>
+      <div class="vital-box"><label>Fatiga</label>
+        <input type="number" name="system.characteristics.secondaries.fatigue.value" value="{{system.characteristics.secondaries.fatigue.value}}" />
+        <span>/{{system.characteristics.secondaries.fatigue.max}}</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<nav class="abf-tabs sheet-tabs" data-group="primary">
+  <a class="item" data-tab="resumen">{{localize "ABF.Tabs.Resumen"}}</a>
+  <a class="item" data-tab="general">{{localize "ABF.Tabs.General"}}</a>
+  <a class="item" data-tab="principal">{{localize "ABF.Tabs.Principal"}}</a>
+  <a class="item" data-tab="pds">{{localize "ABF.Tabs.PDs"}}</a>
+  <a class="item" data-tab="combat">{{localize "ABF.Tabs.Combate"}}</a>
+  {{#if hasKi}}<a class="item" data-tab="ki">{{localize "ABF.Tabs.Ki"}}</a>{{/if}}
+  {{#if hasTechniques}}<a class="item" data-tab="tecnicas">{{localize "ABF.Tabs.Tecnicas"}}</a>{{/if}}
+  {{#if hasMagic}}<a class="item" data-tab="mistico">{{localize "ABF.Tabs.Mistico"}}</a>{{/if}}
+  {{#if hasPsychic}}<a class="item" data-tab="psiquicos">{{localize "ABF.Tabs.Psiquicos"}}</a>{{/if}}
+  {{#if hasElan}}<a class="item" data-tab="elan">{{localize "ABF.Tabs.Elan"}}</a>{{/if}}
+  {{#if (and hasGrimoires hasMagic)}}<a class="item" data-tab="grimorioMagia">{{localize "ABF.Tabs.GrimorioMagia"}}</a>{{/if}}
+  {{#if (and hasGrimoires hasPsychic)}}<a class="item" data-tab="grimorioPsiquica">{{localize "ABF.Tabs.GrimorioPsiquica"}}</a>{{/if}}
+  <a class="item" data-tab="personalizacion">⚙</a>
+</nav>
+
+<section class="sheet-body">
+  <div class="tab" data-group="primary" data-tab="resumen">
+    {{> "systems/abf/templates/actor/parts/resumen/resumen.hbs"}}
+  </div>
+  <div class="tab" data-group="primary" data-tab="general">
+    {{> "systems/abf/templates/actor/parts/general/general.hbs"}}
+  </div>
+  <div class="tab" data-group="primary" data-tab="principal">
+    {{> "systems/abf/templates/actor/parts/principal/principal.hbs"}}
+  </div>
+  <div class="tab" data-group="primary" data-tab="pds">
+    {{> "systems/abf/templates/actor/parts/pds/pds.hbs"}}
+  </div>
+  <div class="tab" data-group="primary" data-tab="combat">
+    {{> "systems/abf/templates/actor/parts/combat/combat.hbs"}}
+  </div>
+  <div class="tab" data-group="primary" data-tab="ki">
+    {{> "systems/abf/templates/actor/parts/ki/ki.hbs"}}
+  </div>
+  <div class="tab" data-group="primary" data-tab="tecnicas">
+    {{> "systems/abf/templates/actor/parts/tecnicasKi/tecnicasKi.hbs"}}
+  </div>
+  <div class="tab" data-group="primary" data-tab="mistico">
+    {{> "systems/abf/templates/actor/parts/misticos/misticos.hbs"}}
+  </div>
+  <div class="tab" data-group="primary" data-tab="psiquicos">
+    {{> "systems/abf/templates/actor/parts/psiquicos/psiquicos.hbs"}}
+  </div>
+  <div class="tab" data-group="primary" data-tab="elan">
+    {{> "systems/abf/templates/actor/parts/elan/elan.hbs"}}
+  </div>
+  <div class="tab" data-group="primary" data-tab="grimorioMagia">
+    {{> "systems/abf/templates/actor/parts/grimorioMagia/grimorioMagia.hbs"}}
+  </div>
+  <div class="tab" data-group="primary" data-tab="grimorioPsiquica">
+    {{> "systems/abf/templates/actor/parts/grimorioPsiquica/grimorioPsiquica.hbs"}}
+  </div>
+  <div class="tab" data-group="primary" data-tab="personalizacion">
+    {{> "systems/abf/templates/actor/parts/personalizacion/personalizacion.hbs"}}
+  </div>
+</section>

@@ -1,13 +1,13 @@
 <section class="tab-general">
 
   {{!-- Sub-tabs --}}
-  <nav class="sub-tabs" data-subtab-group="general">
-    <button type="button" class="active" data-subtab="general-desc">{{localize "ABF.General.Descripcion"}}</button>
-    <button type="button" data-subtab="general-inv">{{localize "ABF.General.Inventario"}}</button>
+  <nav class="abf-tabs secondary-tab" data-group="general">
+    <button type="button" class="active" data-tab="general-desc">{{localize "ABF.General.Descripcion"}}</button>
+    <button type="button" data-tab="general-inv">{{localize "ABF.General.Inventario"}}</button>
   </nav>
 
   {{!-- Sub-tab 1: Descripción --}}
-  <div class="subtab-section active" data-subtab-content="general-desc">
+  <div class="tab active" data-group="general" data-tab="general-desc">
 
     <div class="general-two-col">
       {{!-- Aspecto --}}
@@ -68,7 +68,7 @@
   </div>
 
   {{!-- Sub-tab 2: Inventario / Admin --}}
-  <div class="subtab-section" data-subtab-content="general-inv">
+  <div class="tab" data-group="general" data-tab="general-inv">
 
     <div class="general-two-col">
 

@@ -93,8 +93,8 @@
 }
 
 /* ===== BASE ===== */
-.abf.sheet.actor,
-.abf.sheet.item {
+.abf.sheet.actor .actor-sheet,
+.actor-sheet {
   background: var(--abf-bg);
   color: var(--abf-text);
   font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
@@ -103,48 +103,96 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  overflow: hidden;
 }
 
 /* ===== MAIN TABS ===== */
-.abf-tabs {
+.abf-tabs.sheet-tabs {
+  flex: 0 0 2rem;
+  line-height: 2rem;
+  height: 2rem;
   display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  background: var(--abf-bg-alt);
-  border-bottom: 2px solid var(--abf-accent);
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid var(--abf-accent);
+  border-bottom: 1px solid var(--abf-accent);
+  margin: 0;
   padding: 0;
-  gap: 0;
-  flex-shrink: 0;
+  background: var(--abf-bg-alt);
 }
-.abf-tab {
-  padding: 4px 10px;
-  font-size: 10px;
-  font-weight: 600;
-  border: none;
-  border-bottom: 2px solid transparent;
+.abf-tabs .item {
   background: transparent;
   color: var(--abf-tab-text);
+  font-weight: 600;
+  font-size: 10px;
+  max-height: 2rem;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
+  text-decoration: none;
+  border-radius: 0;
+  transition: background 0.1s, color 0.1s;
   white-space: nowrap;
-  transition: color 0.12s, background 0.12s, border-color 0.12s;
-  margin-bottom: -2px;
+  padding: 0 4px;
 }
-.abf-tab:hover {
-  color: var(--abf-text);
+.abf-tabs .item:hover {
   background: var(--abf-tab-hover);
+  color: var(--abf-text);
 }
-.abf-tab.active {
-  color: var(--abf-active-tab-text);
+.abf-tabs .item.active {
   background: var(--abf-active-tab-bg);
-  border-bottom-color: var(--abf-accent-hover);
+  color: var(--abf-active-tab-text);
+  font-weight: 700;
 }
 
-/* ===== TAB CONTENT SCROLL ===== */
-.abf.sheet.actor [data-application-part]:not([data-application-part="header"]):not([data-application-part="tabs"]) {
-  overflow-y: auto;
-  flex: 1 1 auto;
+/* ===== SECONDARY TABS ===== */
+nav.secondary-tab {
+  flex: 0 0 1.2rem;
+  line-height: 1.2rem;
+  height: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid var(--abf-border);
+  margin: 0;
+  padding: 0;
+  background: var(--abf-bg-alt);
 }
+nav.secondary-tab .item {
+  background: transparent;
+  color: var(--abf-tab-text);
+  font-weight: 600;
+  font-size: 9px;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.1s;
+}
+nav.secondary-tab .item:hover { background: var(--abf-tab-hover); }
+nav.secondary-tab .item.active {
+  background: var(--abf-active-tab-bg);
+  color: var(--abf-active-tab-text);
+}
+
+/* ===== SHEET BODY ===== */
+.sheet-body {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 4px;
+}
+
+/* Tab visibility */
+.sheet-body > .tab { display: none; }
+.sheet-body > .tab.active { display: block; }
+
+/* Secondary tab content */
+.tab[data-group]:not([data-group="primary"]) { display: none; }
+.tab[data-group]:not([data-group="primary"]).active { display: block; }
 
 /* ===== HEADER ===== */
 .sheet-header .header-bar {
@@ -674,6 +722,7 @@ textarea:focus { border-color: var(--abf-input-focus); outline: none; }
 .item-row.disadvantage { color: var(--abf-danger); }
 
 /* ===== ITEM SHEET ===== */
+.abf.sheet.item .item-sheet,
 .abf.item-sheet {
   background: var(--abf-bg);
   color: var(--abf-text);

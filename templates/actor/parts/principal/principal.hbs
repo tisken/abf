@@ -1,12 +1,12 @@
 <section class="tab-principal">
 
-  <nav class="sub-tabs" data-subtab-group="principal">
-    <button type="button" class="active" data-subtab="principal-stats">{{localize "ABF.Principal.Caracteristicas"}}</button>
-    <button type="button" data-subtab="principal-details">{{localize "ABF.Principal.Detalles"}}</button>
+  <nav class="abf-tabs secondary-tab" data-group="principal">
+    <button type="button" class="active" data-tab="principal-stats">{{localize "ABF.Principal.Caracteristicas"}}</button>
+    <button type="button" data-tab="principal-details">{{localize "ABF.Principal.Detalles"}}</button>
   </nav>
 
   {{!-- Sub-tab 1: Características --}}
-  <div class="subtab-section active" data-subtab-content="principal-stats">
+  <div class="tab active" data-group="principal" data-tab="principal-stats">
 
     <div class="principal-grid">
 
@@ -156,7 +156,7 @@
   </div>
 
   {{!-- Sub-tab 2: Detalles / Secundarias --}}
-  <div class="subtab-section" data-subtab-content="principal-details">
+  <div class="tab" data-group="principal" data-tab="principal-details">
 
     <div class="section-box full-width">
       <div class="section-title">{{localize "ABF.Principal.Secundarias"}}</div>
