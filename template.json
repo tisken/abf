@@ -1634,6 +1634,44 @@
     "ammo": {
       "description": {
         "value": ""
+      },
+      "damage": {
+        "base": {
+          "value": 0
+        },
+        "final": {
+          "value": 0
+        }
+      },
+      "breaking": {
+        "base": {
+          "value": 0
+        },
+        "final": {
+          "value": 0
+        }
+      },
+      "integrity": {
+        "base": {
+          "value": 0
+        },
+        "final": {
+          "value": 0
+        }
+      },
+      "presence": {
+        "base": {
+          "value": 0
+        },
+        "final": {
+          "value": 0
+        }
+      },
+      "quality": {
+        "value": 0
+      },
+      "amount": {
+        "value": 0
       }
     },
     "spell": {
@@ -1749,9 +1787,12 @@
         "value": 0
       },
       "combatType": {
-        "value": ""
+        "value": "none"
       },
       "actionType": {
+        "value": "active"
+      },
+      "discipline": {
         "value": ""
       },
       "bonus": {
@@ -1763,7 +1804,128 @@
       "critic": {
         "value": ""
       },
-      "effects": {}
+      "effects": {
+        "20": {
+          "value": "",
+          "damage": {
+            "value": 0
+          },
+          "fatigue": {
+            "value": 0
+          },
+          "shieldPoints": {
+            "value": 0
+          }
+        },
+        "40": {
+          "value": "",
+          "damage": {
+            "value": 0
+          },
+          "fatigue": {
+            "value": 0
+          },
+          "shieldPoints": {
+            "value": 0
+          }
+        },
+        "80": {
+          "value": "",
+          "damage": {
+            "value": 0
+          },
+          "fatigue": {
+            "value": 0
+          },
+          "shieldPoints": {
+            "value": 0
+          }
+        },
+        "120": {
+          "value": "",
+          "damage": {
+            "value": 0
+          },
+          "fatigue": {
+            "value": 0
+          },
+          "shieldPoints": {
+            "value": 0
+          }
+        },
+        "140": {
+          "value": "",
+          "damage": {
+            "value": 0
+          },
+          "fatigue": {
+            "value": 0
+          },
+          "shieldPoints": {
+            "value": 0
+          }
+        },
+        "180": {
+          "value": "",
+          "damage": {
+            "value": 0
+          },
+          "fatigue": {
+            "value": 0
+          },
+          "shieldPoints": {
+            "value": 0
+          }
+        },
+        "240": {
+          "value": "",
+          "damage": {
+            "value": 0
+          },
+          "fatigue": {
+            "value": 0
+          },
+          "shieldPoints": {
+            "value": 0
+          }
+        },
+        "280": {
+          "value": "",
+          "damage": {
+            "value": 0
+          },
+          "fatigue": {
+            "value": 0
+          },
+          "shieldPoints": {
+            "value": 0
+          }
+        },
+        "320": {
+          "value": "",
+          "damage": {
+            "value": 0
+          },
+          "fatigue": {
+            "value": 0
+          },
+          "shieldPoints": {
+            "value": 0
+          }
+        },
+        "440": {
+          "value": "",
+          "damage": {
+            "value": 0
+          },
+          "fatigue": {
+            "value": 0
+          },
+          "shieldPoints": {
+            "value": 0
+          }
+        }
+      }
     },
     "technique": {
       "description": {
@@ -1810,7 +1972,7 @@
       "description": {
         "value": ""
       },
-      "cost": {
+      "benefit": {
         "value": 0
       },
       "category": {
@@ -1826,25 +1988,71 @@
       },
       "weight": {
         "value": 0
+      },
+      "price": {
+        "value": 0
       }
     },
     "effect": {
       "description": {
         "value": ""
       },
-      "active": false
+      "active": false,
+      "effectData": {}
     },
     "martialArt": {
       "description": {
         "value": ""
       },
       "grade": {
+        "value": "base"
+      },
+      "complexity": {
+        "value": 1
+      },
+      "damage": {
+        "value": ""
+      },
+      "damageType": {
+        "value": ""
+      },
+      "bonusAttack": {
+        "value": 0
+      },
+      "bonusBlock": {
+        "value": 0
+      },
+      "bonusDodge": {
+        "value": 0
+      },
+      "requirements": {
+        "value": ""
+      },
+      "martialKnowledge": {
+        "value": 0
+      },
+      "effect": {
         "value": ""
       }
     },
     "kiSkill": {
       "description": {
         "value": ""
+      },
+      "cost": {
+        "value": ""
+      },
+      "stat": {
+        "value": ""
+      },
+      "effect": {
+        "value": ""
+      },
+      "maintenance": {
+        "value": 0
+      },
+      "active": {
+        "value": false
       }
     },
     "metamagic": {
@@ -1853,10 +2061,46 @@
       },
       "grade": {
         "value": 0
+      },
+      "branch": {
+        "value": ""
+      },
+      "spheres": {
+        "value": 0
+      },
+      "effect": {
+        "value": ""
       }
     },
     "summon": {
       "description": {
+        "value": ""
+      },
+      "tier": {
+        "value": ""
+      },
+      "alignment": {
+        "value": ""
+      },
+      "difficulty": {
+        "value": 0
+      },
+      "cost": {
+        "value": 0
+      },
+      "attack": {
+        "value": 0
+      },
+      "defense": {
+        "value": 0
+      },
+      "action": {
+        "value": "active"
+      },
+      "effect": {
+        "value": ""
+      },
+      "duration": {
         "value": ""
       }
     },
@@ -1864,11 +2108,30 @@
       "description": {
         "value": ""
       },
-      "shieldPoints": 0,
-      "abilityFormula": ""
+      "shieldPoints": {
+        "value": 0
+      },
+      "abilityFormula": {
+        "value": ""
+      },
+      "origin": {
+        "value": ""
+      },
+      "active": {
+        "value": false
+      }
     },
     "mentalPattern": {
       "description": {
+        "value": ""
+      },
+      "bonus": {
+        "value": 0
+      },
+      "penalty": {
+        "value": 0
+      },
+      "discipline": {
         "value": ""
       }
     },
@@ -1880,6 +2143,9 @@
     "psychicDiscipline": {
       "description": {
         "value": ""
+      },
+      "imbalance": {
+        "value": false
       }
     }
   }

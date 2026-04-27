@@ -33,6 +33,14 @@ export class ABFItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
     context.isTechnique = this.document.type === 'technique';
     context.isAdvantage = this.document.type === 'advantage';
     context.isDisadvantage = this.document.type === 'disadvantage';
+    context.isSummon = this.document.type === 'summon';
+    context.isKiSkill = this.document.type === 'kiSkill';
+    context.isMartialArt = this.document.type === 'martialArt';
+    context.isMetamagic = this.document.type === 'metamagic';
+    context.isAmmo = this.document.type === 'ammo';
+    context.isInventoryItem = this.document.type === 'inventoryItem';
+    context.isSupernaturalShield = this.document.type === 'supernaturalShield';
+    context.isMentalPattern = this.document.type === 'mentalPattern';
 
     return context;
   }
