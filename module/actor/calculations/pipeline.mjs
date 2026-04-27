@@ -79,9 +79,12 @@ export function runCalculationPipeline(system) {
   const p = d.characteristics.primaries;
   const s = d.characteristics.secondaries;
 
+  // Normalize levels — Foundry v14 may store empty arrays as {}
+  const levels = Array.isArray(d.general.levels) ? d.general.levels : [];
+
   // 1. Total level from level blocks
   let totalLevel = 0;
-  for (const lvl of d.general.levels ?? []) {
+  for (const lvl of levels) {
     totalLevel += safeNum(lvl.system?.level);
   }
   d.general.level.value = totalLevel;
@@ -129,7 +132,7 @@ export function runCalculationPipeline(system) {
   }
 
   // 7. Innate bonuses from category
-  for (const lvl of d.general.levels ?? []) {
+  for (const lvl of levels) {
     const catData = CATEGORY_DATA[lvl.name];
     const catLevel = safeNum(lvl.system?.level);
     if (!catData || catLevel <= 0) continue;
@@ -158,7 +161,7 @@ export function runCalculationPipeline(system) {
   let pdCV = 0, pdPsychicProj = 0, pdKi = 0, pdKiAccum = 0;
   let pdLifeMultiples = 0;
 
-  for (const lvl of d.general.levels ?? []) {
+  for (const lvl of levels) {
     const catName = lvl.name;
     const catLevel = safeNum(lvl.system?.level);
     const catData = CATEGORY_DATA[catName];
@@ -311,7 +314,7 @@ export function runCalculationPipeline(system) {
   // 15. Life points
   const conVal = safeNum(p.constitution?.value);
   const conMod = safeNum(p.constitution?.mod?.value);
-  const primaryCat = d.general.levels?.[0]?.name ?? '';
+  const primaryCat = levels[0]?.name ?? '';
   const lpPerLevel = CATEGORY_DATA[primaryCat]?.lpPerLevel ?? 5;
   s.lifePoints.max = (20 + conVal * 10 + conMod) + (lpPerLevel * totalLevel) + (pdLifeMultiples * conVal);
 

@@ -2,7 +2,7 @@
   "id": "abf",
   "title": "ABF — Anima Beyond Fantasy (v14)",
   "description": "Sistema no oficial de Anima Beyond Fantasy para Foundry VTT v14. Ficha completa, cálculos automáticos, tirada abierta d100, combate, ES/EN. NO es el sistema animabf — es un sistema nuevo independiente.",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "compatibility": {
     "minimum": "14",
     "verified": "14.360"
