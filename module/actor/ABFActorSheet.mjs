@@ -57,8 +57,8 @@ export class ABFActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     await super._onRender(context, options);
     const el = this.element;
 
-    // Tab clicks — works for both primary and secondary navs
-    el.querySelectorAll('nav[data-group] a[data-tab]').forEach(a => {
+    // Tab clicks — works for both primary and secondary navs (a or button)
+    el.querySelectorAll('nav[data-group] [data-tab]').forEach(a => {
       a.addEventListener('click', ev => {
         ev.preventDefault();
         const group = ev.currentTarget.closest('nav').dataset.group;
@@ -72,7 +72,7 @@ export class ABFActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     this.#setActiveTab(el, 'primary', this._activeTabs.primary ?? 'resumen');
     for (const nav of el.querySelectorAll('nav.secondary-tab[data-group]')) {
       const group = nav.dataset.group;
-      const defaultTab = nav.querySelector('a.item')?.dataset.tab;
+      const defaultTab = nav.querySelector('[data-tab]')?.dataset.tab;
       this.#setActiveTab(el, group, this._activeTabs[group] ?? defaultTab);
     }
 
@@ -85,7 +85,7 @@ export class ABFActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   #setActiveTab(el, group, tabId) {
     if (!tabId) return;
     // Nav links
-    el.querySelectorAll(`nav[data-group="${group}"] a[data-tab]`).forEach(a =>
+    el.querySelectorAll(`nav[data-group="${group}"] [data-tab]`).forEach(a =>
       a.classList.toggle('active', a.dataset.tab === tabId)
     );
     // Tab content

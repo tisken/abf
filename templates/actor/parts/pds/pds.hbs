@@ -18,20 +18,21 @@
   </div>
 
   {{!-- Sub-tabs por bloque de nivel --}}
-  {{#if system.general.levels.length}}
-  <nav class="sub-tabs" data-subtab-group="pds">
-    {{#each system.general.levels as |level idx|}}
-    <button type="button" {{#if (eq idx 0)}}class="active"{{/if}}
-            data-subtab="pds-block-{{idx}}">
-      {{level.name}} ({{level.system.level}})
+  {{#each system.general.levels as |level idx|}}
+  {{#if (eq idx 0)}}
+  <nav class="abf-tabs secondary-tab" data-group="pds">
+    {{#each ../system.general.levels as |lv i|}}
+    <button type="button" {{#if (eq i 0)}}class="active"{{/if}} data-tab="pds-block-{{i}}">
+      {{lv.name}} ({{lv.system.level}})
     </button>
     {{/each}}
   </nav>
   {{/if}}
+  {{/each}}
 
   {{!-- Contenido por bloque --}}
   {{#each system.general.levels as |level idx|}}
-  <div class="subtab-section {{#if (eq idx 0)}}active{{/if}}" data-subtab-content="pds-block-{{idx}}">
+  <div class="tab {{#if (eq idx 0)}}active{{/if}}" data-group="pds" data-tab="pds-block-{{idx}}">
     <div class="pds-block">
 
       {{!-- Header del bloque --}}
