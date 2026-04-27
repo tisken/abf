@@ -47,19 +47,20 @@ export class ABFActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   static PARTS = {
     header:            { template: 'systems/abf/templates/actor/parts/header/header.hbs' },
-    resumen:           { template: 'systems/abf/templates/actor/parts/resumen/resumen.hbs', scrollable: [''] },
-    general:           { template: 'systems/abf/templates/actor/parts/general/general.hbs', scrollable: [''] },
-    principal:         { template: 'systems/abf/templates/actor/parts/principal/principal.hbs', scrollable: [''] },
-    pds:               { template: 'systems/abf/templates/actor/parts/pds/pds.hbs', scrollable: [''] },
-    combat:            { template: 'systems/abf/templates/actor/parts/combat/combat.hbs', scrollable: [''] },
-    personalizacion:   { template: 'systems/abf/templates/actor/parts/personalizacion/personalizacion.hbs', scrollable: [''] },
-    ki:                { template: 'systems/abf/templates/actor/parts/ki/ki.hbs', scrollable: [''] },
-    tecnicas:          { template: 'systems/abf/templates/actor/parts/tecnicasKi/tecnicasKi.hbs', scrollable: [''] },
-    mistico:           { template: 'systems/abf/templates/actor/parts/misticos/misticos.hbs', scrollable: [''] },
-    psiquicos:         { template: 'systems/abf/templates/actor/parts/psiquicos/psiquicos.hbs', scrollable: [''] },
-    elan:              { template: 'systems/abf/templates/actor/parts/elan/elan.hbs', scrollable: [''] },
-    grimorioMagia:     { template: 'systems/abf/templates/actor/parts/grimorioMagia/grimorioMagia.hbs', scrollable: [''] },
-    grimorioPsiquica:  { template: 'systems/abf/templates/actor/parts/grimorioPsiquica/grimorioPsiquica.hbs', scrollable: [''] }
+    tabs:              { template: 'systems/abf/templates/actor/parts/tabs-nav/tabs-nav.hbs' },
+    resumen:           { template: 'systems/abf/templates/actor/parts/resumen/resumen.hbs', scrollable: [''], tab: 'resumen' },
+    general:           { template: 'systems/abf/templates/actor/parts/general/general.hbs', scrollable: [''], tab: 'general' },
+    principal:         { template: 'systems/abf/templates/actor/parts/principal/principal.hbs', scrollable: [''], tab: 'principal' },
+    pds:               { template: 'systems/abf/templates/actor/parts/pds/pds.hbs', scrollable: [''], tab: 'pds' },
+    combat:            { template: 'systems/abf/templates/actor/parts/combat/combat.hbs', scrollable: [''], tab: 'combat' },
+    personalizacion:   { template: 'systems/abf/templates/actor/parts/personalizacion/personalizacion.hbs', scrollable: [''], tab: 'personalizacion' },
+    ki:                { template: 'systems/abf/templates/actor/parts/ki/ki.hbs', scrollable: [''], tab: 'ki' },
+    tecnicas:          { template: 'systems/abf/templates/actor/parts/tecnicasKi/tecnicasKi.hbs', scrollable: [''], tab: 'tecnicas' },
+    mistico:           { template: 'systems/abf/templates/actor/parts/misticos/misticos.hbs', scrollable: [''], tab: 'mistico' },
+    psiquicos:         { template: 'systems/abf/templates/actor/parts/psiquicos/psiquicos.hbs', scrollable: [''], tab: 'psiquicos' },
+    elan:              { template: 'systems/abf/templates/actor/parts/elan/elan.hbs', scrollable: [''], tab: 'elan' },
+    grimorioMagia:     { template: 'systems/abf/templates/actor/parts/grimorioMagia/grimorioMagia.hbs', scrollable: [''], tab: 'grimorioMagia' },
+    grimorioPsiquica:  { template: 'systems/abf/templates/actor/parts/grimorioPsiquica/grimorioPsiquica.hbs', scrollable: [''], tab: 'grimorioPsiquica' }
   };
 
   /** @override */
@@ -87,6 +88,10 @@ export class ABFActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
     // Items by type for templates
     context.weapons = actor.items.filter(i => i.type === 'weapon');
+
+    // Tabs for the nav template
+    const tabs = this._prepareTabs('primary');
+    context.tabs = Array.isArray(tabs) ? tabs : Object.values(tabs ?? {});
     context.armors = actor.items.filter(i => i.type === 'armor');
     context.combatSpecialSkills = actor.items.filter(i => i.type === 'combatSpecialSkill');
     context.advantages = actor.items.filter(i => i.type === 'advantage');

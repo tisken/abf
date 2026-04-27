@@ -100,6 +100,50 @@
   font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   font-size: 11px;
   line-height: 1.35;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ===== MAIN TABS ===== */
+.abf-tabs {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  background: var(--abf-bg-alt);
+  border-bottom: 2px solid var(--abf-accent);
+  padding: 0;
+  gap: 0;
+  flex-shrink: 0;
+}
+.abf-tab {
+  padding: 4px 10px;
+  font-size: 10px;
+  font-weight: 600;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: transparent;
+  color: var(--abf-tab-text);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.12s, background 0.12s, border-color 0.12s;
+  margin-bottom: -2px;
+}
+.abf-tab:hover {
+  color: var(--abf-text);
+  background: var(--abf-tab-hover);
+}
+.abf-tab.active {
+  color: var(--abf-active-tab-text);
+  background: var(--abf-active-tab-bg);
+  border-bottom-color: var(--abf-accent-hover);
+}
+
+/* ===== TAB CONTENT SCROLL ===== */
+.abf.sheet.actor [data-application-part]:not([data-application-part="header"]):not([data-application-part="tabs"]) {
+  overflow-y: auto;
+  flex: 1 1 auto;
 }
 
 /* ===== HEADER ===== */
