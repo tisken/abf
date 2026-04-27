@@ -1,0 +1,30 @@
+<section class="tab-grimorioMagia">
+  <div class="combat-summary-bar">
+    <span>{{localize "ABF.Mist.Zeon"}}: <strong>{{system.mystic.zeon.value}}</strong>/{{system.mystic.zeon.max}}</span>
+    <span>{{localize "ABF.Mist.NvMagico"}}: {{system.mystic.magicLevel.used.value}}/{{system.mystic.magicLevel.total.value}}</span>
+    <span>{{localize "ABF.Mist.Conjuros"}}: {{spells.length}}</span>
+  </div>
+  <div class="section-box">
+    <div class="section-title magic">{{localize "ABF.Grim.Magia"}}</div>
+    <table class="compact-table wide-table">
+      <thead>
+        <tr>
+          <th>{{localize "ABF.Combat.Nombre"}}</th>
+          <th>{{localize "ABF.Grim.Via"}}</th>
+          <th>{{localize "ABF.Grim.Nivel"}}</th>
+          <th>{{localize "ABF.Grim.Grado"}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each spells as |sp|}}
+        <tr class="item-row" data-item-id="{{sp._id}}">
+          <td>{{sp.name}}</td>
+          <td>{{sp.system.via.value}}</td>
+          <td>{{sp.system.level.value}}</td>
+          <td>{{sp.system.spellType.value}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</section>

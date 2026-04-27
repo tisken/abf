@@ -1,0 +1,204 @@
+<section class="tab-pds">
+
+  {{!-- Cabecera PDs --}}
+  <div class="pds-header">
+    <span class="pds-total">
+      {{localize "ABF.PDs.Titulo"}}:
+      <strong>{{system.general._pdTotals.spent}}</strong> / {{system.general._pdTotals.available}}
+      {{#if system.general._pdTotals.remaining}}
+        {{#if (gt system.general._pdTotals.remaining 0)}}
+          <span class="pds-ok">({{system.general._pdTotals.remaining}} {{localize "ABF.PDs.Restantes"}})</span>
+        {{else}}
+          <span class="pds-over">({{system.general._pdTotals.remaining}})</span>
+        {{/if}}
+      {{/if}}
+    </span>
+    <span>{{localize "ABF.Principal.Nivel"}}: {{system.general.level.value}}</span>
+    <button type="button" class="pds-add-btn" data-action="addLevel">{{localize "ABF.PDs.AnadirNivel"}}</button>
+  </div>
+
+  {{!-- Sub-tabs por bloque de nivel --}}
+  {{#if system.general.levels.length}}
+  <nav class="sub-tabs" data-subtab-group="pds">
+    {{#each system.general.levels as |level idx|}}
+    <button type="button" {{#if (eq idx 0)}}class="active"{{/if}}
+            data-subtab="pds-block-{{idx}}">
+      {{level.name}} ({{level.system.level}})
+    </button>
+    {{/each}}
+  </nav>
+  {{/if}}
+
+  {{!-- Contenido por bloque --}}
+  {{#each system.general.levels as |level idx|}}
+  <div class="subtab-section {{#if (eq idx 0)}}active{{/if}}" data-subtab-content="pds-block-{{idx}}">
+    <div class="pds-block">
+
+      {{!-- Header del bloque --}}
+      <div class="pds-block-header">
+        <strong>{{level.name}}</strong> — {{level.system.level}} {{localize "ABF.PDs.Niveles"}}
+        <span class="pds-block-total">PDs: {{level.system._pdSpentTotal}} / {{level.system.pd._available}}</span>
+        <button type="button" class="pds-delete-btn" data-action="deleteLevel" data-level-idx="{{idx}}"
+                title="{{localize 'ABF.PDs.Eliminar'}}">🗑</button>
+      </div>
+
+      <div class="pds-fieldsets">
+
+        {{!-- Combate --}}
+        <fieldset class="{{#if level.system._pdLimits.combatOver}}pds-over{{/if}}">
+          <legend>{{localize "ABF.PDs.Combate"}} ({{localize "ABF.PDs.Max"}} {{level.system._pdLimits.combat}})</legend>
+          <table class="compact-table pds-table">
+            <thead><tr><th>{{localize "ABF.PDs.Habilidad"}}</th><th>{{localize "ABF.PDs.Puntos"}}</th><th>×</th><th>=</th></tr></thead>
+            <tbody>
+              <tr><td>{{localize "ABF.PDs.HAtaque"}}</td>
+                <td><input type="number" name="system.general.levels.{{idx}}.system.pd.attack.value" value="{{level.system.pd.attack.value}}" min="0"/></td>
+                <td class="pds-cost">{{level.system._catCosts.attack}}</td>
+                <td class="pds-result">{{level.system._pdSpent.attack}}</td></tr>
+              <tr><td>{{localize "ABF.PDs.HParada"}}</td>
+                <td><input type="number" name="system.general.levels.{{idx}}.system.pd.block.value" value="{{level.system.pd.block.value}}" min="0"/></td>
+                <td class="pds-cost">{{level.system._catCosts.block}}</td>
+                <td class="pds-result">{{level.system._pdSpent.block}}</td></tr>
+              <tr><td>{{localize "ABF.PDs.HEsquiva"}}</td>
+                <td><input type="number" name="system.general.levels.{{idx}}.system.pd.dodge.value" value="{{level.system.pd.dodge.value}}" min="0"/></td>
+                <td class="pds-cost">{{level.system._catCosts.dodge}}</td>
+                <td class="pds-result">{{level.system._pdSpent.dodge}}</td></tr>
+              <tr><td>{{localize "ABF.PDs.LlevarArmadura"}}</td>
+                <td><input type="number" name="system.general.levels.{{idx}}.system.pd.wearArmor.value" value="{{level.system.pd.wearArmor.value}}" min="0"/></td>
+                <td class="pds-cost">{{level.system._catCosts.wearArmor}}</td>
+                <td class="pds-result">{{level.system._pdSpent.wearArmor}}</td></tr>
+            </tbody>
+          </table>
+        </fieldset>
+
+        {{!-- Sobrenatural --}}
+        <fieldset class="pds-fieldset-magic {{#if level.system._pdLimits.supernaturalOver}}pds-over{{/if}}">
+          <legend>{{localize "ABF.PDs.Sobrenatural"}} ({{localize "ABF.PDs.Max"}} {{level.system._pdLimits.supernatural}})</legend>
+          <table class="compact-table pds-table">
+            <thead><tr><th>{{localize "ABF.PDs.Habilidad"}}</th><th>{{localize "ABF.PDs.Puntos"}}</th><th>×</th><th>=</th></tr></thead>
+            <tbody>
+              <tr><td>{{localize "ABF.PDs.Zeon"}}</td>
+                <td><input type="number" name="system.general.levels.{{idx}}.system.pd.zeon.value" value="{{level.system.pd.zeon.value}}" min="0"/></td>
+                <td class="pds-cost">{{level.system._catCosts.zeon}}</td>
+                <td class="pds-result">{{level.system._pdSpent.zeon}}</td></tr>
+              <tr><td>{{localize "ABF.PDs.ACT"}}</td>
+                <td><input type="number" name="system.general.levels.{{idx}}.system.pd.act.value" value="{{level.system.pd.act.value}}" min="0"/></td>
+                <td class="pds-cost">{{level.system._catCosts.act}}</td>
+                <td class="pds-result">{{level.system._pdSpent.act}}</td></tr>
+              <tr><td>{{localize "ABF.PDs.ProyMagica"}}</td>
+                <td><input type="number" name="system.general.levels.{{idx}}.system.pd.magicProjection.value" value="{{level.system.pd.magicProjection.value}}" min="0"/></td>
+                <td class="pds-cost">{{level.system._catCosts.magicProjection}}</td>
+                <td class="pds-result">{{level.system._pdSpent.magicProjection}}</td></tr>
+              <tr><td>{{localize "ABF.PDs.Convocar"}}</td>
+                <td><input type="number" name="system.general.levels.{{idx}}.system.pd.summon.value" value="{{level.system.pd.summon.value}}" min="0"/></td>
+                <td class="pds-cost">{{level.system._catCosts.summon}}</td>
+                <td class="pds-result">{{level.system._pdSpent.summon}}</td></tr>
+              <tr><td>{{localize "ABF.PDs.Dominar"}}</td>
+                <td><input type="number" name="system.general.levels.{{idx}}.system.pd.control.value" value="{{level.system.pd.control.value}}" min="0"/></td>
+                <td class="pds-cost">{{level.system._catCosts.control}}</td>
+                <td class="pds-result">{{level.system._pdSpent.control}}</td></tr>
+              <tr><td>{{localize "ABF.PDs.Atar"}}</td>
+                <td><input type="number" name="system.general.levels.{{idx}}.system.pd.bind.value" value="{{level.system.pd.bind.value}}" min="0"/></td>
+                <td class="pds-cost">{{level.system._catCosts.bind}}</td>
+                <td class="pds-result">{{level.system._pdSpent.bind}}</td></tr>
+              <tr><td>{{localize "ABF.PDs.Desconvocar"}}</td>
+                <td><input type="number" name="system.general.levels.{{idx}}.system.pd.banish.value" value="{{level.system.pd.banish.value}}" min="0"/></td>
+                <td class="pds-cost">{{level.system._catCosts.banish}}</td>
+                <td class="pds-result">{{level.system._pdSpent.banish}}</td></tr>
+            </tbody>
+          </table>
+        </fieldset>
+
+        {{!-- Psíquico --}}
+        <fieldset class="pds-fieldset-psychic {{#if level.system._pdLimits.psychicOver}}pds-over{{/if}}">
+          <legend>{{localize "ABF.PDs.Psiquico"}} ({{localize "ABF.PDs.Max"}} {{level.system._pdLimits.psychic}})</legend>
+          <table class="compact-table pds-table">
+            <thead><tr><th>{{localize "ABF.PDs.Habilidad"}}</th><th>{{localize "ABF.PDs.Puntos"}}</th><th>×</th><th>=</th></tr></thead>
+            <tbody>
+              <tr><td>{{localize "ABF.PDs.CV"}}</td>
+                <td><input type="number" name="system.general.levels.{{idx}}.system.pd.cv.value" value="{{level.system.pd.cv.value}}" min="0"/></td>
+                <td class="pds-cost">{{level.system._catCosts.cv}}</td>
+                <td class="pds-result">{{level.system._pdSpent.cv}}</td></tr>
+              <tr><td>{{localize "ABF.PDs.ProyPsiquica"}}</td>
+                <td><input type="number" name="system.general.levels.{{idx}}.system.pd.psychicProjection.value" value="{{level.system.pd.psychicProjection.value}}" min="0"/></td>
+                <td class="pds-cost">{{level.system._catCosts.psychicProjection}}</td>
+                <td class="pds-result">{{level.system._pdSpent.psychicProjection}}</td></tr>
+            </tbody>
+          </table>
+        </fieldset>
+
+        {{!-- Ki --}}
+        <fieldset class="pds-fieldset-ki">
+          <legend>{{localize "ABF.PDs.Ki"}}</legend>
+          <table class="compact-table pds-table">
+            <thead><tr><th>{{localize "ABF.PDs.Habilidad"}}</th><th>{{localize "ABF.PDs.Puntos"}}</th><th>×</th><th>=</th></tr></thead>
+            <tbody>
+              <tr><td>{{localize "ABF.PDs.KiPuntos"}}</td>
+                <td><input type="number" name="system.general.levels.{{idx}}.system.pd.ki.value" value="{{level.system.pd.ki.value}}" min="0"/></td>
+                <td class="pds-cost">{{level.system._catCosts.ki}}</td>
+                <td class="pds-result">{{level.system._pdSpent.ki}}</td></tr>
+              <tr><td>{{localize "ABF.PDs.KiAcum"}}</td>
+                <td><input type="number" name="system.general.levels.{{idx}}.system.pd.kiAccum.value" value="{{level.system.pd.kiAccum.value}}" min="0"/></td>
+                <td class="pds-cost">{{level.system._catCosts.kiAccum}}</td>
+                <td class="pds-result">{{level.system._pdSpent.kiAccum}}</td></tr>
+            </tbody>
+          </table>
+        </fieldset>
+
+        {{!-- Secundarias --}}
+        <fieldset>
+          <legend>{{localize "ABF.PDs.Secundarias"}}</legend>
+          <table class="compact-table pds-table">
+            <thead><tr><th>{{localize "ABF.PDs.Habilidad"}}</th><th>{{localize "ABF.PDs.Puntos"}}</th><th>×</th><th>=</th></tr></thead>
+            <tbody>
+              <tr><td>{{localize "ABF.PDs.Atleticas"}}</td>
+                <td><input type="number" name="system.general.levels.{{idx}}.system.pd.athletic.value" value="{{level.system.pd.athletic.value}}" min="0"/></td>
+                <td class="pds-cost">{{level.system._catCosts.athletic}}</td>
+                <td class="pds-result">{{level.system._pdSpent.athletic}}</td></tr>
+              <tr><td>{{localize "ABF.PDs.Sociales"}}</td>
+                <td><input type="number" name="system.general.levels.{{idx}}.system.pd.social.value" value="{{level.system.pd.social.value}}" min="0"/></td>
+                <td class="pds-cost">{{level.system._catCosts.social}}</td>
+                <td class="pds-result">{{level.system._pdSpent.social}}</td></tr>
+              <tr><td>{{localize "ABF.PDs.Perceptivas"}}</td>
+                <td><input type="number" name="system.general.levels.{{idx}}.system.pd.perceptive.value" value="{{level.system.pd.perceptive.value}}" min="0"/></td>
+                <td class="pds-cost">{{level.system._catCosts.perceptive}}</td>
+                <td class="pds-result">{{level.system._pdSpent.perceptive}}</td></tr>
+              <tr><td>{{localize "ABF.PDs.Intelectuales"}}</td>
+                <td><input type="number" name="system.general.levels.{{idx}}.system.pd.intellectual.value" value="{{level.system.pd.intellectual.value}}" min="0"/></td>
+                <td class="pds-cost">{{level.system._catCosts.intellectual}}</td>
+                <td class="pds-result">{{level.system._pdSpent.intellectual}}</td></tr>
+              <tr><td>{{localize "ABF.PDs.Vigor"}}</td>
+                <td><input type="number" name="system.general.levels.{{idx}}.system.pd.vigor.value" value="{{level.system.pd.vigor.value}}" min="0"/></td>
+                <td class="pds-cost">{{level.system._catCosts.vigor}}</td>
+                <td class="pds-result">{{level.system._pdSpent.vigor}}</td></tr>
+              <tr><td>{{localize "ABF.PDs.Subterfugio"}}</td>
+                <td><input type="number" name="system.general.levels.{{idx}}.system.pd.subterfuge.value" value="{{level.system.pd.subterfuge.value}}" min="0"/></td>
+                <td class="pds-cost">{{level.system._catCosts.subterfuge}}</td>
+                <td class="pds-result">{{level.system._pdSpent.subterfuge}}</td></tr>
+              <tr><td>{{localize "ABF.PDs.Creativas"}}</td>
+                <td><input type="number" name="system.general.levels.{{idx}}.system.pd.creative.value" value="{{level.system.pd.creative.value}}" min="0"/></td>
+                <td class="pds-cost">{{level.system._catCosts.creative}}</td>
+                <td class="pds-result">{{level.system._pdSpent.creative}}</td></tr>
+            </tbody>
+          </table>
+        </fieldset>
+
+        {{!-- Vida --}}
+        <fieldset>
+          <legend>{{localize "ABF.PDs.Vida"}}</legend>
+          <table class="compact-table pds-table">
+            <thead><tr><th></th><th>{{localize "ABF.PDs.Puntos"}}</th><th>×</th><th>=</th></tr></thead>
+            <tbody>
+              <tr><td>{{localize "ABF.PDs.MultVida"}}</td>
+                <td><input type="number" name="system.general.levels.{{idx}}.system.pd.lifeMultiples.value" value="{{level.system.pd.lifeMultiples.value}}" min="0"/></td>
+                <td class="pds-cost">{{level.system._catCosts.lifeMultiple}}</td>
+                <td class="pds-result">{{level.system._pdSpent.lifeMultiples}}</td></tr>
+            </tbody>
+          </table>
+        </fieldset>
+
+      </div>
+    </div>
+  </div>
+  {{/each}}
+
+</section>

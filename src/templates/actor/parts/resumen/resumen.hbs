@@ -1,0 +1,282 @@
+<section class="tab-resumen">
+
+  {{!-- Meta --}}
+  <div class="resumen-meta">
+    <span class="meta-badge">Nv {{system.general.level.value}}</span>
+    <span class="meta-badge">{{system.general.levels.0.name}}</span>
+    <span class="meta-badge">{{localize "ABF.Resumen.Destino"}}: <strong>{{system.general.destinyPoints.final.value}}</strong></span>
+    <span class="meta-badge">XP: {{system.general.experience.current.value}}/{{system.general.experience.next.value}}</span>
+  </div>
+
+  {{!-- Características --}}
+  <div class="section-box full-width">
+    <div class="section-title">{{localize "ABF.Resumen.Caracteristicas"}}</div>
+    <div class="stat-row">
+      <span class="stat-badge rollable" data-action="roll"
+            data-formula="1d10 + {{system.characteristics.primaries.strength.mod.value}}"
+            data-label="{{localize 'ABF.Stats.strength'}}"
+            title="{{localize 'ABF.Stats.strength'}}">
+        {{localize "ABF.Stats.STR"}}: <strong>{{system.characteristics.primaries.strength.value}}</strong>
+        <small>({{system.characteristics.primaries.strength.mod.value}})</small>
+      </span>
+      <span class="stat-badge rollable" data-action="roll"
+            data-formula="1d10 + {{system.characteristics.primaries.dexterity.mod.value}}"
+            data-label="{{localize 'ABF.Stats.dexterity'}}"
+            title="{{localize 'ABF.Stats.dexterity'}}">
+        {{localize "ABF.Stats.DEX"}}: <strong>{{system.characteristics.primaries.dexterity.value}}</strong>
+        <small>({{system.characteristics.primaries.dexterity.mod.value}})</small>
+      </span>
+      <span class="stat-badge rollable" data-action="roll"
+            data-formula="1d10 + {{system.characteristics.primaries.agility.mod.value}}"
+            data-label="{{localize 'ABF.Stats.agility'}}"
+            title="{{localize 'ABF.Stats.agility'}}">
+        {{localize "ABF.Stats.AGI"}}: <strong>{{system.characteristics.primaries.agility.value}}</strong>
+        <small>({{system.characteristics.primaries.agility.mod.value}})</small>
+      </span>
+      <span class="stat-badge rollable" data-action="roll"
+            data-formula="1d10 + {{system.characteristics.primaries.constitution.mod.value}}"
+            data-label="{{localize 'ABF.Stats.constitution'}}"
+            title="{{localize 'ABF.Stats.constitution'}}">
+        {{localize "ABF.Stats.CON"}}: <strong>{{system.characteristics.primaries.constitution.value}}</strong>
+        <small>({{system.characteristics.primaries.constitution.mod.value}})</small>
+      </span>
+      <span class="stat-badge rollable" data-action="roll"
+            data-formula="1d10 + {{system.characteristics.primaries.intelligence.mod.value}}"
+            data-label="{{localize 'ABF.Stats.intelligence'}}"
+            title="{{localize 'ABF.Stats.intelligence'}}">
+        {{localize "ABF.Stats.INT"}}: <strong>{{system.characteristics.primaries.intelligence.value}}</strong>
+        <small>({{system.characteristics.primaries.intelligence.mod.value}})</small>
+      </span>
+      <span class="stat-badge rollable" data-action="roll"
+            data-formula="1d10 + {{system.characteristics.primaries.perception.mod.value}}"
+            data-label="{{localize 'ABF.Stats.perception'}}"
+            title="{{localize 'ABF.Stats.perception'}}">
+        {{localize "ABF.Stats.PER"}}: <strong>{{system.characteristics.primaries.perception.value}}</strong>
+        <small>({{system.characteristics.primaries.perception.mod.value}})</small>
+      </span>
+      <span class="stat-badge rollable" data-action="roll"
+            data-formula="1d10 + {{system.characteristics.primaries.power.mod.value}}"
+            data-label="{{localize 'ABF.Stats.power'}}"
+            title="{{localize 'ABF.Stats.power'}}">
+        {{localize "ABF.Stats.POW"}}: <strong>{{system.characteristics.primaries.power.value}}</strong>
+        <small>({{system.characteristics.primaries.power.mod.value}})</small>
+      </span>
+      <span class="stat-badge rollable" data-action="roll"
+            data-formula="1d10 + {{system.characteristics.primaries.willPower.mod.value}}"
+            data-label="{{localize 'ABF.Stats.willPower'}}"
+            title="{{localize 'ABF.Stats.willPower'}}">
+        {{localize "ABF.Stats.WP"}}: <strong>{{system.characteristics.primaries.willPower.value}}</strong>
+        <small>({{system.characteristics.primaries.willPower.mod.value}})</small>
+      </span>
+    </div>
+  </div>
+
+  {{!-- Presencia + Resistencias --}}
+  <div class="section-box full-width">
+    <div class="section-title">{{localize "ABF.Resumen.Resistencias"}}</div>
+    <div class="stat-row">
+      <span class="stat-badge">{{localize "ABF.Resumen.Presencia"}}: <strong>{{system.general.presence.final.value}}</strong></span>
+      <span class="stat-badge rollable" data-action="roll"
+            data-formula="1d100 + {{system.characteristics.secondaries.resistances.physical.final.value}}"
+            data-label="{{localize 'ABF.Res.physicalFull'}}" title="{{localize 'ABF.Res.physicalFull'}}">
+        {{localize "ABF.Res.physical"}}: <strong>{{system.characteristics.secondaries.resistances.physical.final.value}}</strong>
+      </span>
+      <span class="stat-badge rollable" data-action="roll"
+            data-formula="1d100 + {{system.characteristics.secondaries.resistances.disease.final.value}}"
+            data-label="{{localize 'ABF.Res.diseaseFull'}}" title="{{localize 'ABF.Res.diseaseFull'}}">
+        {{localize "ABF.Res.disease"}}: <strong>{{system.characteristics.secondaries.resistances.disease.final.value}}</strong>
+      </span>
+      <span class="stat-badge rollable" data-action="roll"
+            data-formula="1d100 + {{system.characteristics.secondaries.resistances.poison.final.value}}"
+            data-label="{{localize 'ABF.Res.poisonFull'}}" title="{{localize 'ABF.Res.poisonFull'}}">
+        {{localize "ABF.Res.poison"}}: <strong>{{system.characteristics.secondaries.resistances.poison.final.value}}</strong>
+      </span>
+      <span class="stat-badge rollable" data-action="roll"
+            data-formula="1d100 + {{system.characteristics.secondaries.resistances.magic.final.value}}"
+            data-label="{{localize 'ABF.Res.magicFull'}}" title="{{localize 'ABF.Res.magicFull'}}">
+        {{localize "ABF.Res.magic"}}: <strong>{{system.characteristics.secondaries.resistances.magic.final.value}}</strong>
+      </span>
+      <span class="stat-badge rollable" data-action="roll"
+            data-formula="1d100 + {{system.characteristics.secondaries.resistances.psychic.final.value}}"
+            data-label="{{localize 'ABF.Res.psychicFull'}}" title="{{localize 'ABF.Res.psychicFull'}}">
+        {{localize "ABF.Res.psychic"}}: <strong>{{system.characteristics.secondaries.resistances.psychic.final.value}}</strong>
+      </span>
+    </div>
+  </div>
+
+  <div class="resumen-grid">
+
+    {{!-- Combate --}}
+    <div class="section-box">
+      <div class="section-title">{{localize "ABF.Resumen.Combate"}}</div>
+      <div class="combat-fields">
+        <div class="field-row rollable" data-action="roll"
+             data-formula="1d100 + {{system.combat.attack.final.value}}" data-label="{{localize 'ABF.Resumen.HAtaque'}}">
+          <span class="field-label">{{localize "ABF.Resumen.HAtaque"}}</span>
+          <strong>{{system.combat.attack.final.value}}</strong>
+        </div>
+        <div class="field-row rollable" data-action="roll"
+             data-formula="1d100 + {{system.combat.block.final.value}}" data-label="{{localize 'ABF.Resumen.HParada'}}">
+          <span class="field-label">{{localize "ABF.Resumen.HParada"}}</span>
+          <strong>{{system.combat.block.final.value}}</strong>
+        </div>
+        <div class="field-row rollable" data-action="roll"
+             data-formula="1d100 + {{system.combat.dodge.final.value}}" data-label="{{localize 'ABF.Resumen.HEsquiva'}}">
+          <span class="field-label">{{localize "ABF.Resumen.HEsquiva"}}</span>
+          <strong>{{system.combat.dodge.final.value}}</strong>
+        </div>
+        <div class="field-row">
+          <span class="field-label">{{localize "ABF.Resumen.LlevarArmadura"}}</span>
+          <strong>{{system.combat.wearArmor.final.value}}</strong>
+        </div>
+        <div class="field-row">
+          <span class="field-label">{{localize "ABF.Resumen.DanoExtra"}}</span>
+          <strong>{{system.general.modifiers.extraDamage.final.value}}</strong>
+        </div>
+      </div>
+    </div>
+
+    {{!-- Armadura --}}
+    <div class="section-box">
+      <div class="section-title">{{localize "ABF.Resumen.Armadura"}}</div>
+      <div class="ta-grid">
+        <span>FIL: <strong>{{system.combat.totalArmor.at.cut.value}}</strong></span>
+        <span>CON: <strong>{{system.combat.totalArmor.at.impact.value}}</strong></span>
+        <span>PEN: <strong>{{system.combat.totalArmor.at.thrust.value}}</strong></span>
+        <span>CAL: <strong>{{system.combat.totalArmor.at.heat.value}}</strong></span>
+        <span>ELE: <strong>{{system.combat.totalArmor.at.electricity.value}}</strong></span>
+        <span>FRI: <strong>{{system.combat.totalArmor.at.cold.value}}</strong></span>
+        <span>ENE: <strong>{{system.combat.totalArmor.at.energy.value}}</strong></span>
+      </div>
+    </div>
+
+    {{!-- Ki --}}
+    {{#if @root.hasKi}}
+    <div class="section-box section-ki">
+      <div class="section-title ki">{{localize "ABF.Resumen.Ki"}}</div>
+      <div class="combat-fields">
+        <div class="field-row">
+          <span class="field-label">Ki</span>
+          <input type="number" name="system.domine.kiAccumulation.generic.value"
+                 value="{{system.domine.kiAccumulation.generic.value}}" class="inline-input" />
+          <span>/{{system.domine.kiAccumulation.generic.max}}</span>
+        </div>
+        <div class="field-row">
+          <span class="field-label">CM</span>
+          <span>{{system.domine.martialKnowledge.used.value}}/{{system.domine.martialKnowledge.max.value}}</span>
+        </div>
+        <div class="field-row">
+          <span class="field-label">{{localize "ABF.Resumen.Acumulaciones"}}</span>
+          <span>F:{{system.domine.kiAccumulation.strength.final.value}}
+                D:{{system.domine.kiAccumulation.dexterity.final.value}}
+                A:{{system.domine.kiAccumulation.agility.final.value}}
+                C:{{system.domine.kiAccumulation.constitution.final.value}}
+                P:{{system.domine.kiAccumulation.power.final.value}}
+                V:{{system.domine.kiAccumulation.willPower.final.value}}</span>
+        </div>
+      </div>
+    </div>
+    {{/if}}
+
+    {{!-- Magia --}}
+    {{#if @root.hasMagic}}
+    <div class="section-box section-magic">
+      <div class="section-title magic">{{localize "ABF.Resumen.Magia"}}</div>
+      <div class="combat-fields">
+        <div class="field-row rollable" data-action="roll"
+             data-formula="1d100 + {{system.mystic.magicProjection.imbalance.offensive.final.value}}"
+             data-label="{{localize 'ABF.Resumen.ProyMagica'}}">
+          <span class="field-label">{{localize "ABF.Resumen.ProyMagica"}}</span>
+          <strong>{{system.mystic.magicProjection.imbalance.offensive.final.value}}</strong>
+        </div>
+        <div class="field-row">
+          <span class="field-label">Zeón</span>
+          <input type="number" name="system.mystic.zeon.value"
+                 value="{{system.mystic.zeon.value}}" class="inline-input" />
+          <span>/{{system.mystic.zeon.max}}</span>
+        </div>
+        <div class="field-row">
+          <span class="field-label">ACT</span>
+          <strong>{{system.mystic.act.main.final.value}}</strong>
+        </div>
+        <div class="field-row">
+          <span class="field-label">{{localize "ABF.Resumen.Mantenido"}}</span>
+          <strong>{{system.mystic.zeonMaintained.value}}</strong>
+        </div>
+        <div class="field-row">
+          <span class="field-label">{{localize "ABF.Resumen.NvMagico"}}</span>
+          <span>{{system.mystic.magicLevel.used.value}}/{{system.mystic.magicLevel.total.value}}</span>
+        </div>
+      </div>
+    </div>
+    {{/if}}
+
+    {{!-- Psíquica --}}
+    {{#if @root.hasPsychic}}
+    <div class="section-box section-psychic">
+      <div class="section-title psychic">{{localize "ABF.Resumen.Psiquica"}}</div>
+      <div class="combat-fields">
+        <div class="field-row rollable" data-action="roll"
+             data-formula="1d100 + {{system.psychic.psychicProjection.final.value}}"
+             data-label="{{localize 'ABF.Resumen.ProyPsiquica'}}">
+          <span class="field-label">{{localize "ABF.Resumen.ProyPsiquica"}}</span>
+          <strong>{{system.psychic.psychicProjection.final.value}}</strong>
+        </div>
+        <div class="field-row">
+          <span class="field-label">CV</span>
+          <input type="number" name="system.psychic.psychicPoints.value"
+                 value="{{system.psychic.psychicPoints.value}}" class="inline-input" />
+          <span>/{{system.psychic.psychicPoints.max}}</span>
+        </div>
+        <div class="field-row">
+          <span class="field-label">{{localize "ABF.Resumen.Potencial"}}</span>
+          <strong>{{system.psychic.psychicPotential.final.value}}</strong>
+        </div>
+      </div>
+    </div>
+    {{/if}}
+
+  </div>
+
+  {{!-- Estado --}}
+  <div class="section-box full-width">
+    <div class="section-title">{{localize "ABF.Resumen.Estado"}}</div>
+    <div class="stat-row">
+      <span class="stat-badge">{{localize "ABF.Resumen.Tamano"}}: {{system.general.aspect.size.value}}</span>
+      <span class="stat-badge">{{localize "ABF.Resumen.Movimiento"}}: {{system.characteristics.secondaries.movementType.final.value}} ({{system.characteristics.secondaries.movement.maximum.value}}m)</span>
+      <span class="stat-badge">{{localize "ABF.Resumen.Regeneracion"}}: {{system.characteristics.secondaries.regenerationType.final.value}}</span>
+      <span class="stat-badge">{{localize "ABF.Resumen.PenNatural"}}: <strong>{{system.general.modifiers.naturalPenalty.final.value}}</strong></span>
+      <span class="stat-badge">{{localize "ABF.Resumen.Acciones"}}:
+        <input type="number" name="system.general.settings.actions.value"
+               value="{{system.general.settings.actions.value}}" class="inline-input tiny" />
+      </span>
+    </div>
+  </div>
+
+  {{!-- Secundarias --}}
+  <div class="section-box full-width">
+    <div class="section-title">{{localize "ABF.Resumen.Secundarias"}}</div>
+    <div class="secondaries-grid">
+      {{#each system.secondaries as |group groupKey|}}
+      <div class="sec-group">
+        <span class="sec-group-label">{{localize (concat "ABF.SecGroups." groupKey)}}</span>
+        {{#each group as |skill skillKey|}}
+        <span class="stat-badge rollable" data-action="roll"
+              data-formula="1d100 + {{skill.final.value}}"
+              data-label="{{localize (concat 'ABF.Sec.' skillKey)}}">
+          {{localize (concat "ABF.Sec." skillKey)}} <strong>{{skill.final.value}}</strong>
+        </span>
+        {{/each}}
+      </div>
+      {{/each}}
+    </div>
+  </div>
+
+  {{!-- Notas --}}
+  <div class="section-box full-width">
+    <div class="section-title">{{localize "ABF.Resumen.Notas"}}</div>
+    <textarea name="system.general.quickNotes.value" rows="3"
+              placeholder="{{localize 'ABF.Resumen.NotasPlaceholder'}}">{{system.general.quickNotes.value}}</textarea>
+  </div>
+
+</section>

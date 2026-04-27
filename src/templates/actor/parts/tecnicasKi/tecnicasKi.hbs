@@ -1,0 +1,23 @@
+<section class="tab-tecnicasKi">
+  <div class="section-title ki">{{localize "ABF.Tec.Titulo"}}</div>
+  <div class="card-grid">
+    {{#each techniques as |tec|}}
+    <div class="technique-card {{#if tec.system.active}}active{{/if}}" data-item-id="{{tec._id}}">
+      <div class="section-title ki">{{tec.name}} — Nv {{tec.system.level.value}}</div>
+      <div class="technique-body">
+        <div class="field-row"><span class="field-label">{{localize "ABF.Tec.CosteKi"}}</span>
+          <span>F:{{tec.system.strength.value}} D:{{tec.system.dexterity.value}} A:{{tec.system.agility.value}} C:{{tec.system.constitution.value}} P:{{tec.system.power.value}} V:{{tec.system.willPower.value}}</span>
+        </div>
+        {{#if tec.system.description.value}}<div class="technique-desc">{{tec.system.description.value}}</div>{{/if}}
+      </div>
+      <div class="technique-footer">
+        <label><input type="checkbox" name="items.{{tec._id}}.system.active" {{checked tec.system.active}} />
+          {{#if tec.system.active}}{{localize "ABF.Tec.Activa"}}{{else}}{{localize "ABF.Tec.Inactiva"}}{{/if}}
+        </label>
+      </div>
+    </div>
+    {{else}}
+    <p class="placeholder">{{localize "ABF.Tec.Vacio"}}</p>
+    {{/each}}
+  </div>
+</section>

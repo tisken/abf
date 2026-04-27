@@ -1,0 +1,187 @@
+<section class="tab-principal">
+
+  <nav class="sub-tabs" data-subtab-group="principal">
+    <button type="button" class="active" data-subtab="principal-stats">{{localize "ABF.Principal.Caracteristicas"}}</button>
+    <button type="button" data-subtab="principal-details">{{localize "ABF.Principal.Detalles"}}</button>
+  </nav>
+
+  {{!-- Sub-tab 1: Características --}}
+  <div class="subtab-section active" data-subtab-content="principal-stats">
+
+    <div class="principal-grid">
+
+      {{!-- Nivel + Experiencia --}}
+      <div class="section-box">
+        <div class="section-title">{{localize "ABF.Principal.Nivel"}} / {{localize "ABF.Principal.Experiencia"}}</div>
+        <table class="compact-table">
+          <tbody>
+            <tr>
+              <td class="field-label">{{localize "ABF.Principal.Nivel"}}</td>
+              <td><strong>{{system.general.level.value}}</strong></td>
+              <td class="field-label">{{localize "ABF.Principal.PuntosDestino"}}</td>
+              <td><input type="number" name="system.general.destinyPoints.base.value" value="{{system.general.destinyPoints.base.value}}" /></td>
+            </tr>
+            <tr>
+              <td class="field-label">{{localize "ABF.Principal.ExpActual"}}</td>
+              <td><input type="number" name="system.general.experience.current.value" value="{{system.general.experience.current.value}}" /></td>
+              <td class="field-label">{{localize "ABF.Principal.ExpSiguiente"}}</td>
+              <td><strong>{{system.general.experience.next.value}}</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      {{!-- Características principales --}}
+      <div class="section-box">
+        <div class="section-title">{{localize "ABF.Principal.Caracteristicas"}}</div>
+        <table class="compact-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>{{localize "ABF.Principal.Base"}}</th>
+              <th>{{localize "ABF.Principal.Especial"}}</th>
+              <th>{{localize "ABF.Principal.Final"}}</th>
+              <th>{{localize "ABF.Principal.Mod"}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="field-label">{{localize "ABF.Stats.STR"}}</td>
+              <td><input type="number" name="system.characteristics.primaries.strength.base.value" value="{{system.characteristics.primaries.strength.base.value}}" /></td>
+              <td><input type="number" name="system.characteristics.primaries.strength.special.value" value="{{system.characteristics.primaries.strength.special.value}}" /></td>
+              <td><strong>{{system.characteristics.primaries.strength.final.value}}</strong></td>
+              <td><strong>{{system.characteristics.primaries.strength.mod.value}}</strong></td>
+            </tr>
+            <tr>
+              <td class="field-label">{{localize "ABF.Stats.DEX"}}</td>
+              <td><input type="number" name="system.characteristics.primaries.dexterity.base.value" value="{{system.characteristics.primaries.dexterity.base.value}}" /></td>
+              <td><input type="number" name="system.characteristics.primaries.dexterity.special.value" value="{{system.characteristics.primaries.dexterity.special.value}}" /></td>
+              <td><strong>{{system.characteristics.primaries.dexterity.final.value}}</strong></td>
+              <td><strong>{{system.characteristics.primaries.dexterity.mod.value}}</strong></td>
+            </tr>
+            <tr>
+              <td class="field-label">{{localize "ABF.Stats.AGI"}}</td>
+              <td><input type="number" name="system.characteristics.primaries.agility.base.value" value="{{system.characteristics.primaries.agility.base.value}}" /></td>
+              <td><input type="number" name="system.characteristics.primaries.agility.special.value" value="{{system.characteristics.primaries.agility.special.value}}" /></td>
+              <td><strong>{{system.characteristics.primaries.agility.final.value}}</strong></td>
+              <td><strong>{{system.characteristics.primaries.agility.mod.value}}</strong></td>
+            </tr>
+            <tr>
+              <td class="field-label">{{localize "ABF.Stats.CON"}}</td>
+              <td><input type="number" name="system.characteristics.primaries.constitution.base.value" value="{{system.characteristics.primaries.constitution.base.value}}" /></td>
+              <td><input type="number" name="system.characteristics.primaries.constitution.special.value" value="{{system.characteristics.primaries.constitution.special.value}}" /></td>
+              <td><strong>{{system.characteristics.primaries.constitution.final.value}}</strong></td>
+              <td><strong>{{system.characteristics.primaries.constitution.mod.value}}</strong></td>
+            </tr>
+            <tr>
+              <td class="field-label">{{localize "ABF.Stats.INT"}}</td>
+              <td><input type="number" name="system.characteristics.primaries.intelligence.base.value" value="{{system.characteristics.primaries.intelligence.base.value}}" /></td>
+              <td><input type="number" name="system.characteristics.primaries.intelligence.special.value" value="{{system.characteristics.primaries.intelligence.special.value}}" /></td>
+              <td><strong>{{system.characteristics.primaries.intelligence.final.value}}</strong></td>
+              <td><strong>{{system.characteristics.primaries.intelligence.mod.value}}</strong></td>
+            </tr>
+            <tr>
+              <td class="field-label">{{localize "ABF.Stats.PER"}}</td>
+              <td><input type="number" name="system.characteristics.primaries.perception.base.value" value="{{system.characteristics.primaries.perception.base.value}}" /></td>
+              <td><input type="number" name="system.characteristics.primaries.perception.special.value" value="{{system.characteristics.primaries.perception.special.value}}" /></td>
+              <td><strong>{{system.characteristics.primaries.perception.final.value}}</strong></td>
+              <td><strong>{{system.characteristics.primaries.perception.mod.value}}</strong></td>
+            </tr>
+            <tr>
+              <td class="field-label">{{localize "ABF.Stats.POW"}}</td>
+              <td><input type="number" name="system.characteristics.primaries.power.base.value" value="{{system.characteristics.primaries.power.base.value}}" /></td>
+              <td><input type="number" name="system.characteristics.primaries.power.special.value" value="{{system.characteristics.primaries.power.special.value}}" /></td>
+              <td><strong>{{system.characteristics.primaries.power.final.value}}</strong></td>
+              <td><strong>{{system.characteristics.primaries.power.mod.value}}</strong></td>
+            </tr>
+            <tr>
+              <td class="field-label">{{localize "ABF.Stats.WP"}}</td>
+              <td><input type="number" name="system.characteristics.primaries.willPower.base.value" value="{{system.characteristics.primaries.willPower.base.value}}" /></td>
+              <td><input type="number" name="system.characteristics.primaries.willPower.special.value" value="{{system.characteristics.primaries.willPower.special.value}}" /></td>
+              <td><strong>{{system.characteristics.primaries.willPower.final.value}}</strong></td>
+              <td><strong>{{system.characteristics.primaries.willPower.mod.value}}</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      {{!-- Resistencias --}}
+      <div class="section-box">
+        <div class="section-title">{{localize "ABF.Principal.Resistencias"}}</div>
+        <table class="compact-table">
+          <thead>
+            <tr><th></th><th>{{localize "ABF.Principal.Base"}}</th><th>{{localize "ABF.Principal.Especial"}}</th><th>{{localize "ABF.Principal.Final"}}</th></tr>
+          </thead>
+          <tbody>
+            {{#each system.characteristics.secondaries.resistances as |res key|}}
+            <tr>
+              <td class="field-label">{{localize (concat "ABF.Res." key)}}</td>
+              <td><strong>{{res.base.value}}</strong></td>
+              <td><input type="number" name="system.characteristics.secondaries.resistances.{{key}}.special.value" value="{{res.special.value}}" /></td>
+              <td><strong>{{res.final.value}}</strong></td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+
+      {{!-- Derivados --}}
+      <div class="section-box">
+        <div class="section-title">{{localize "ABF.Principal.Derivados"}}</div>
+        <table class="compact-table">
+          <tbody>
+            <tr>
+              <td class="field-label">{{localize "ABF.Principal.PVMax"}}</td>
+              <td><strong>{{system.characteristics.secondaries.lifePoints.max}}</strong></td>
+              <td class="field-label">{{localize "ABF.Principal.FatigaMax"}}</td>
+              <td><strong>{{system.characteristics.secondaries.fatigue.max}}</strong></td>
+            </tr>
+            <tr>
+              <td class="field-label">{{localize "ABF.Principal.Iniciativa"}}</td>
+              <td><strong>{{system.characteristics.secondaries.initiative.final.value}}</strong></td>
+              <td class="field-label">{{localize "ABF.Principal.Movimiento"}}</td>
+              <td><strong>{{system.characteristics.secondaries.movementType.final.value}}</strong></td>
+            </tr>
+            <tr>
+              <td class="field-label">{{localize "ABF.Principal.Regeneracion"}}</td>
+              <td><strong>{{system.characteristics.secondaries.regenerationType.final.value}}</strong></td>
+              <td class="field-label">{{localize "ABF.Principal.Presencia"}}</td>
+              <td><strong>{{system.general.presence.final.value}}</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </div>
+
+  {{!-- Sub-tab 2: Detalles / Secundarias --}}
+  <div class="subtab-section" data-subtab-content="principal-details">
+
+    <div class="section-box full-width">
+      <div class="section-title">{{localize "ABF.Principal.Secundarias"}}</div>
+      {{#each system.secondaries as |group groupKey|}}
+      <div class="sec-table-group">
+        <h4 class="sec-table-title">{{localize (concat "ABF.SecGroups." groupKey)}}</h4>
+        <table class="compact-table">
+          <thead>
+            <tr><th></th><th>{{localize "ABF.Principal.Base"}}</th><th>{{localize "ABF.Principal.Especial"}}</th><th>{{localize "ABF.Principal.Final"}}</th></tr>
+          </thead>
+          <tbody>
+            {{#each group as |skill skillKey|}}
+            <tr>
+              <td class="field-label">{{localize (concat "ABF.Sec." skillKey)}}</td>
+              <td><input type="number" name="system.secondaries.{{groupKey}}.{{skillKey}}.base.value" value="{{skill.base.value}}" /></td>
+              <td><input type="number" name="system.secondaries.{{groupKey}}.{{skillKey}}.special.value" value="{{skill.special.value}}" /></td>
+              <td><strong>{{skill.final.value}}</strong></td>
+            </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+      {{/each}}
+    </div>
+
+  </div>
+
+</section>

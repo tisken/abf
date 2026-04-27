@@ -1,0 +1,17 @@
+<section class="tab-elan">
+  <div class="section-box">
+    <div class="section-title elan">{{localize "ABF.Elan.Titulo"}} — {{localize "ABF.Elan.Entidades"}}</div>
+    {{#each system.general.elan as |elan|}}
+    <div class="elan-card">
+      <div class="elan-header">
+        <strong>{{elan.name}}</strong> <span>Nv {{elan.system.level.value}}</span>
+      </div>
+      {{#each elan.system.powers as |power|}}
+      <div class="item-row">{{power.name}} — Nv {{power.system.level.value}}</div>
+      {{/each}}
+    </div>
+    {{else}}
+    <p class="placeholder">{{localize "ABF.Elan.Vacio"}}</p>
+    {{/each}}
+  </div>
+</section>

@@ -1,0 +1,133 @@
+<section class="tab-general">
+
+  {{!-- Sub-tabs --}}
+  <nav class="sub-tabs" data-subtab-group="general">
+    <button type="button" class="active" data-subtab="general-desc">{{localize "ABF.General.Descripcion"}}</button>
+    <button type="button" data-subtab="general-inv">{{localize "ABF.General.Inventario"}}</button>
+  </nav>
+
+  {{!-- Sub-tab 1: Descripción --}}
+  <div class="subtab-section active" data-subtab-content="general-desc">
+
+    <div class="general-two-col">
+      {{!-- Aspecto --}}
+      <div class="section-box">
+        <div class="section-title">{{localize "ABF.General.Apariencia"}}</div>
+        <table class="compact-table">
+          <tbody>
+            <tr>
+              <td class="field-label">{{localize "ABF.General.Raza"}}</td>
+              <td><input type="text" name="system.general.aspect.race.value" value="{{system.general.aspect.race.value}}" /></td>
+              <td class="field-label">{{localize "ABF.General.Edad"}}</td>
+              <td><input type="text" name="system.general.aspect.age.value" value="{{system.general.aspect.age.value}}" class="short" /></td>
+            </tr>
+            <tr>
+              <td class="field-label">{{localize "ABF.General.Sexo"}}</td>
+              <td><input type="text" name="system.general.aspect.gender.value" value="{{system.general.aspect.gender.value}}" class="short" /></td>
+              <td class="field-label">{{localize "ABF.General.Etnia"}}</td>
+              <td><input type="text" name="system.general.aspect.ethnicity.value" value="{{system.general.aspect.ethnicity.value}}" /></td>
+            </tr>
+            <tr>
+              <td class="field-label">{{localize "ABF.General.Altura"}}</td>
+              <td><input type="text" name="system.general.aspect.height.value" value="{{system.general.aspect.height.value}}" class="short" /></td>
+              <td class="field-label">{{localize "ABF.General.Peso"}}</td>
+              <td><input type="text" name="system.general.aspect.weight.value" value="{{system.general.aspect.weight.value}}" class="short" /></td>
+            </tr>
+            <tr>
+              <td class="field-label">{{localize "ABF.General.Pelo"}}</td>
+              <td><input type="text" name="system.general.aspect.hair.value" value="{{system.general.aspect.hair.value}}" class="short" /></td>
+              <td class="field-label">{{localize "ABF.General.Ojos"}}</td>
+              <td><input type="text" name="system.general.aspect.eyes.value" value="{{system.general.aspect.eyes.value}}" class="short" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      {{!-- Retrato grande --}}
+      <div class="section-box portrait-section">
+        <img class="general-portrait" src="{{actor.img}}" data-edit="img" />
+      </div>
+    </div>
+
+    {{!-- Historia --}}
+    <div class="section-box">
+      <div class="section-title">{{localize "ABF.General.Historia"}}</div>
+      <div class="textarea-box">
+        <textarea name="system.general.description.value" rows="8">{{system.general.description.value}}</textarea>
+      </div>
+    </div>
+
+    {{!-- Notas --}}
+    <div class="section-box">
+      <div class="section-title">{{localize "ABF.General.NotasPartida"}}</div>
+      <div class="textarea-box">
+        <textarea name="system.general.quickNotes.value" rows="4">{{system.general.quickNotes.value}}</textarea>
+      </div>
+    </div>
+
+  </div>
+
+  {{!-- Sub-tab 2: Inventario / Admin --}}
+  <div class="subtab-section" data-subtab-content="general-inv">
+
+    <div class="general-two-col">
+
+      {{!-- Dinero --}}
+      <div class="section-box">
+        <div class="section-title">{{localize "ABF.General.Dinero"}}</div>
+        <table class="compact-table">
+          <tbody>
+            <tr>
+              <td class="field-label">{{localize "ABF.General.Oro"}}</td>
+              <td><input type="number" name="system.general.money.gold.value" value="{{system.general.money.gold.value}}" /></td>
+            </tr>
+            <tr>
+              <td class="field-label">{{localize "ABF.General.Plata"}}</td>
+              <td><input type="number" name="system.general.money.silver.value" value="{{system.general.money.silver.value}}" /></td>
+            </tr>
+            <tr>
+              <td class="field-label">{{localize "ABF.General.Cobre"}}</td>
+              <td><input type="number" name="system.general.money.copper.value" value="{{system.general.money.copper.value}}" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      {{!-- Idiomas --}}
+      <div class="section-box">
+        <div class="section-title">{{localize "ABF.General.Idiomas"}}</div>
+        <table class="compact-table">
+          <tbody>
+            <tr>
+              <td class="field-label">{{localize "ABF.General.IdiomaBase"}}</td>
+              <td><input type="text" name="system.general.languages.base.value" value="{{system.general.languages.base.value}}" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    {{!-- Ventajas --}}
+    <div class="section-box">
+      <div class="section-title">{{localize "ABF.General.Ventajas"}}</div>
+      <div class="item-list">
+        {{#each system.general.advantages as |adv|}}
+        <div class="item-row">{{adv.name}}</div>
+        {{/each}}
+      </div>
+    </div>
+
+    {{!-- Desventajas --}}
+    <div class="section-box">
+      <div class="section-title">{{localize "ABF.General.Desventajas"}}</div>
+      <div class="item-list">
+        {{#each system.general.disadvantages as |dis|}}
+        <div class="item-row disadvantage">{{dis.name}}</div>
+        {{/each}}
+      </div>
+    </div>
+
+  </div>
+
+</section>

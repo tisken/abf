@@ -1,0 +1,205 @@
+<section class="tab-combat">
+
+  {{!-- Quick summary bar --}}
+  <div class="combat-summary-bar">
+    <span class="rollable" data-action="roll"
+          data-formula="1d100 + {{system.combat.attack.final.value}}" data-label="{{localize 'ABF.Combat.HAtaque'}}">
+      {{localize "ABF.Combat.HAtaque"}}: <strong>{{system.combat.attack.final.value}}</strong>
+    </span>
+    <span class="rollable" data-action="roll"
+          data-formula="1d100 + {{system.combat.block.final.value}}" data-label="{{localize 'ABF.Combat.HParada'}}">
+      {{localize "ABF.Combat.HParada"}}: <strong>{{system.combat.block.final.value}}</strong>
+    </span>
+    <span class="rollable" data-action="roll"
+          data-formula="1d100 + {{system.combat.dodge.final.value}}" data-label="{{localize 'ABF.Combat.HEsquiva'}}">
+      {{localize "ABF.Combat.HEsquiva"}}: <strong>{{system.combat.dodge.final.value}}</strong>
+    </span>
+    <span class="rollable" data-action="roll"
+          data-formula="1d100 + {{system.characteristics.secondaries.initiative.final.value}}" data-label="{{localize 'ABF.Combat.Turno'}}">
+      {{localize "ABF.Combat.Turno"}}: <strong>{{system.characteristics.secondaries.initiative.final.value}}</strong>
+    </span>
+  </div>
+
+  <nav class="sub-tabs" data-subtab-group="combat">
+    <button type="button" class="active" data-subtab="combat-main">{{localize "ABF.Combat.FichaCombate"}}</button>
+    <button type="button" data-subtab="combat-cap">{{localize "ABF.Combat.Capacidades"}}</button>
+  </nav>
+
+  {{!-- Sub-tab 1: Ficha de combate --}}
+  <div class="subtab-section active" data-subtab-content="combat-main">
+
+    <div class="combat-grid">
+
+      {{!-- Valores base --}}
+      <div class="section-box">
+        <div class="section-title">{{localize "ABF.Combat.ValoresBase"}}</div>
+        <table class="compact-table">
+          <thead>
+            <tr><th></th><th>{{localize "ABF.Principal.Base"}}</th><th>{{localize "ABF.Principal.Especial"}}</th><th>{{localize "ABF.Principal.Final"}}</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="field-label">{{localize "ABF.Combat.HAtaque"}}</td>
+              <td><input type="number" name="system.combat.attack.base.value" value="{{system.combat.attack.base.value}}" /></td>
+              <td><input type="number" name="system.combat.attack.special.value" value="{{system.combat.attack.special.value}}" /></td>
+              <td><strong>{{system.combat.attack.final.value}}</strong></td>
+            </tr>
+            <tr>
+              <td class="field-label">{{localize "ABF.Combat.HParada"}}</td>
+              <td><input type="number" name="system.combat.block.base.value" value="{{system.combat.block.base.value}}" /></td>
+              <td><input type="number" name="system.combat.block.special.value" value="{{system.combat.block.special.value}}" /></td>
+              <td><strong>{{system.combat.block.final.value}}</strong></td>
+            </tr>
+            <tr>
+              <td class="field-label">{{localize "ABF.Combat.HEsquiva"}}</td>
+              <td><input type="number" name="system.combat.dodge.base.value" value="{{system.combat.dodge.base.value}}" /></td>
+              <td><input type="number" name="system.combat.dodge.special.value" value="{{system.combat.dodge.special.value}}" /></td>
+              <td><strong>{{system.combat.dodge.final.value}}</strong></td>
+            </tr>
+            <tr>
+              <td class="field-label">{{localize "ABF.Combat.LlevarArmadura"}}</td>
+              <td><input type="number" name="system.combat.wearArmor.base.value" value="{{system.combat.wearArmor.base.value}}" /></td>
+              <td><input type="number" name="system.combat.wearArmor.special.value" value="{{system.combat.wearArmor.special.value}}" /></td>
+              <td><strong>{{system.combat.wearArmor.final.value}}</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="compact-table" style="margin-top: 2px;">
+          <tbody>
+            <tr>
+              <td class="field-label">{{localize "ABF.Combat.DanoExtra"}}</td>
+              <td><input type="number" name="system.general.modifiers.extraDamage.base.value" value="{{system.general.modifiers.extraDamage.base.value}}" /></td>
+              <td class="field-label">{{localize "ABF.Combat.BonoCritico"}}</td>
+              <td><input type="number" name="system.general.modifiers.critDamageBonus.base.value" value="{{system.general.modifiers.critDamageBonus.base.value}}" /></td>
+            </tr>
+            <tr>
+              <td class="field-label">{{localize "ABF.Combat.ResDano"}}</td>
+              <td><input type="number" name="system.combat.damageReduction.base.value" value="{{system.combat.damageReduction.base.value}}" /></td>
+              <td class="field-label">{{localize "ABF.Combat.CriticoAuto"}}</td>
+              <td><input type="checkbox" name="system.general.modifiers.automaticCrit.value" {{checked system.general.modifiers.automaticCrit.value}} /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      {{!-- TA Total --}}
+      <div class="section-box">
+        <div class="section-title">{{localize "ABF.Combat.TATotal"}}</div>
+        <table class="compact-table">
+          <thead>
+            <tr>
+              <th>{{localize "ABF.Combat.FIL"}}</th><th>{{localize "ABF.Combat.CON"}}</th>
+              <th>{{localize "ABF.Combat.PEN"}}</th><th>{{localize "ABF.Combat.CAL"}}</th>
+              <th>{{localize "ABF.Combat.ELE"}}</th><th>{{localize "ABF.Combat.FRI"}}</th>
+              <th>{{localize "ABF.Combat.ENE"}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>{{system.combat.totalArmor.at.cut.value}}</strong></td>
+              <td><strong>{{system.combat.totalArmor.at.impact.value}}</strong></td>
+              <td><strong>{{system.combat.totalArmor.at.thrust.value}}</strong></td>
+              <td><strong>{{system.combat.totalArmor.at.heat.value}}</strong></td>
+              <td><strong>{{system.combat.totalArmor.at.electricity.value}}</strong></td>
+              <td><strong>{{system.combat.totalArmor.at.cold.value}}</strong></td>
+              <td><strong>{{system.combat.totalArmor.at.energy.value}}</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    {{!-- Armas --}}
+    <div class="section-box full-width">
+      <div class="section-title">{{localize "ABF.Combat.Armas"}}</div>
+      <table class="compact-table wide-table">
+        <thead>
+          <tr>
+            <th>{{localize "ABF.Combat.Nombre"}}</th>
+            <th>{{localize "ABF.Combat.Ataque"}}</th>
+            <th>{{localize "ABF.Combat.Defensa"}}</th>
+            <th>{{localize "ABF.Combat.Dano"}}</th>
+            <th>{{localize "ABF.Combat.Velocidad"}}</th>
+            <th>{{localize "ABF.Combat.Critico"}}</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each weapons as |w|}}
+          <tr class="item-row" data-item-id="{{w._id}}">
+            <td>{{w.name}}</td>
+            <td>{{w.system.attack.final.value}}</td>
+            <td>{{w.system.block.final.value}}</td>
+            <td>{{w.system.damage.final.value}}</td>
+            <td>{{w.system.speed.final.value}}</td>
+            <td>{{w.system.critic.value}}</td>
+            <td>
+              <span class="rollable" data-action="roll"
+                    data-formula="1d100 + {{w.system.attack.final.value}}"
+                    data-label="{{localize 'ABF.Combat.Atacar'}} {{w.name}}">⚔</span>
+            </td>
+          </tr>
+          {{else}}
+          <tr><td colspan="7" class="placeholder">{{localize "ABF.Combat.SinArmas"}}</td></tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+
+    {{!-- Armaduras --}}
+    <div class="section-box full-width">
+      <div class="section-title">{{localize "ABF.Combat.Armaduras"}}</div>
+      <table class="compact-table wide-table">
+        <thead>
+          <tr>
+            <th>{{localize "ABF.Combat.Nombre"}}</th>
+            <th>{{localize "ABF.Combat.FIL"}}</th><th>{{localize "ABF.Combat.CON"}}</th>
+            <th>{{localize "ABF.Combat.PEN"}}</th><th>{{localize "ABF.Combat.CAL"}}</th>
+            <th>{{localize "ABF.Combat.ELE"}}</th><th>{{localize "ABF.Combat.FRI"}}</th>
+            <th>{{localize "ABF.Combat.ENE"}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each armors as |a|}}
+          <tr class="item-row" data-item-id="{{a._id}}">
+            <td>{{a.name}}</td>
+            <td>{{a.system.cut.final.value}}</td>
+            <td>{{a.system.impact.final.value}}</td>
+            <td>{{a.system.thrust.final.value}}</td>
+            <td>{{a.system.heat.final.value}}</td>
+            <td>{{a.system.electricity.final.value}}</td>
+            <td>{{a.system.cold.final.value}}</td>
+            <td>{{a.system.energy.final.value}}</td>
+          </tr>
+          {{else}}
+          <tr><td colspan="8" class="placeholder">{{localize "ABF.Combat.SinArmaduras"}}</td></tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  {{!-- Sub-tab 2: Capacidades --}}
+  <div class="subtab-section" data-subtab-content="combat-cap">
+
+    <div class="section-box">
+      <div class="section-title">{{localize "ABF.Combat.HabilidadesEspeciales"}}</div>
+      <div class="item-list">
+        {{#each combatSpecialSkills as |skill|}}
+        <div class="item-row">{{skill.name}}</div>
+        {{/each}}
+      </div>
+    </div>
+
+    <div class="section-box">
+      <div class="section-title">{{localize "ABF.Combat.NotasCombate"}}</div>
+      <div class="textarea-box">
+        <textarea rows="6" readonly>Notas de combate, maniobras especiales, estados...</textarea>
+      </div>
+    </div>
+
+  </div>
+
+</section>

@@ -1,0 +1,26 @@
+<header class="sheet-header">
+  <div class="header-bar">
+    <img class="header-portrait" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+
+    <input class="header-name" type="text" name="name" value="{{actor.name}}" />
+
+    <div class="header-vitals">
+      <div class="vital-box">
+        <label>PV</label>
+        <input type="number" name="system.characteristics.secondaries.lifePoints.value"
+               value="{{system.characteristics.secondaries.lifePoints.value}}" />
+        <span class="vital-max">/{{system.characteristics.secondaries.lifePoints.max}}</span>
+      </div>
+      <div class="vital-box">
+        <label>{{localize "ABF.Resumen.Turno"}}</label>
+        <strong>{{system.characteristics.secondaries.initiative.final.value}}</strong>
+      </div>
+      <div class="vital-box">
+        <label>Fatiga</label>
+        <input type="number" name="system.characteristics.secondaries.fatigue.value"
+               value="{{system.characteristics.secondaries.fatigue.value}}" />
+        <span class="vital-max">/{{system.characteristics.secondaries.fatigue.max}}</span>
+      </div>
+    </div>
+  </div>
+</header>

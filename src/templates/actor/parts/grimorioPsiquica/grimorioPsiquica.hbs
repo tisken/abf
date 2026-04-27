@@ -1,0 +1,18 @@
+<section class="tab-grimorioPsiquica">
+  <div class="combat-summary-bar">
+    <span>{{localize "ABF.Psi.CV"}}: <strong>{{system.psychic.psychicPoints.value}}</strong>/{{system.psychic.psychicPoints.max}}</span>
+    <span>{{localize "ABF.Psi.Potencial"}}: <strong>{{system.psychic.psychicPotential.final.value}}</strong></span>
+    <span>{{localize "ABF.Psi.Poderes"}}: {{psychicPowers.length}}</span>
+  </div>
+  <div class="section-box">
+    <div class="section-title psychic">{{localize "ABF.Grim.Psiquica"}}</div>
+    <div class="reference-grid">
+      {{#each psychicPowers as |pw|}}
+      <div class="reference-card" data-item-id="{{pw._id}}">
+        <div class="ref-card-title">{{pw.name}}</div>
+        <div class="ref-card-meta">Nv {{pw.system.level.value}}</div>
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,65 @@
+<section class="tab-ki">
+  <div class="combat-summary-bar">
+    <span>{{localize "ABF.Ki.PuntosKi"}}: <strong>{{system.domine.kiAccumulation.generic.value}}</strong>/{{system.domine.kiAccumulation.generic.max}}</span>
+    <span>{{localize "ABF.Ki.CM"}}: <strong>{{system.domine.martialKnowledge.used.value}}</strong>/{{system.domine.martialKnowledge.max.value}}</span>
+  </div>
+
+  <nav class="sub-tabs" data-subtab-group="ki">
+    <button type="button" class="active" data-subtab="ki-resumen">{{localize "ABF.Ki.Resumen"}}</button>
+    <button type="button" data-subtab="ki-hab">{{localize "ABF.Ki.Habilidades"}}</button>
+  </nav>
+
+  <div class="subtab-section active" data-subtab-content="ki-resumen">
+    <div class="section-box">
+      <div class="section-title ki">{{localize "ABF.Ki.Acumulacion"}}</div>
+      <table class="compact-table">
+        <thead><tr><th></th><th>{{localize "ABF.Principal.Base"}}</th><th>{{localize "ABF.Principal.Final"}}</th></tr></thead>
+        <tbody>
+          <tr><td class="field-label">{{localize "ABF.Stats.STR"}}</td><td>{{system.domine.kiAccumulation.strength.base.value}}</td><td><strong>{{system.domine.kiAccumulation.strength.final.value}}</strong></td></tr>
+          <tr><td class="field-label">{{localize "ABF.Stats.DEX"}}</td><td>{{system.domine.kiAccumulation.dexterity.base.value}}</td><td><strong>{{system.domine.kiAccumulation.dexterity.final.value}}</strong></td></tr>
+          <tr><td class="field-label">{{localize "ABF.Stats.AGI"}}</td><td>{{system.domine.kiAccumulation.agility.base.value}}</td><td><strong>{{system.domine.kiAccumulation.agility.final.value}}</strong></td></tr>
+          <tr><td class="field-label">{{localize "ABF.Stats.CON"}}</td><td>{{system.domine.kiAccumulation.constitution.base.value}}</td><td><strong>{{system.domine.kiAccumulation.constitution.final.value}}</strong></td></tr>
+          <tr><td class="field-label">{{localize "ABF.Stats.POW"}}</td><td>{{system.domine.kiAccumulation.power.base.value}}</td><td><strong>{{system.domine.kiAccumulation.power.final.value}}</strong></td></tr>
+          <tr><td class="field-label">{{localize "ABF.Stats.WP"}}</td><td>{{system.domine.kiAccumulation.willPower.base.value}}</td><td><strong>{{system.domine.kiAccumulation.willPower.final.value}}</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="section-box">
+      <div class="section-title ki">{{localize "ABF.Ki.Sellos"}}</div>
+      <table class="compact-table">
+        <thead><tr><th></th><th>{{localize "ABF.Ki.Fuego"}}</th><th>{{localize "ABF.Ki.Agua"}}</th><th>{{localize "ABF.Ki.Metal"}}</th><th>{{localize "ABF.Ki.Viento"}}</th><th>{{localize "ABF.Ki.Madera"}}</th></tr></thead>
+        <tbody>
+          <tr><td class="field-label">{{localize "ABF.Ki.SelloMenor"}}</td>
+            <td><input type="checkbox" name="system.domine.seals.minor.fire" {{checked system.domine.seals.minor.fire}} /></td>
+            <td><input type="checkbox" name="system.domine.seals.minor.water" {{checked system.domine.seals.minor.water}} /></td>
+            <td><input type="checkbox" name="system.domine.seals.minor.metal" {{checked system.domine.seals.minor.metal}} /></td>
+            <td><input type="checkbox" name="system.domine.seals.minor.wind" {{checked system.domine.seals.minor.wind}} /></td>
+            <td><input type="checkbox" name="system.domine.seals.minor.wood" {{checked system.domine.seals.minor.wood}} /></td>
+          </tr>
+          <tr><td class="field-label">{{localize "ABF.Ki.SelloMayor"}}</td>
+            <td><input type="checkbox" name="system.domine.seals.major.fire" {{checked system.domine.seals.major.fire}} /></td>
+            <td><input type="checkbox" name="system.domine.seals.major.water" {{checked system.domine.seals.major.water}} /></td>
+            <td><input type="checkbox" name="system.domine.seals.major.metal" {{checked system.domine.seals.major.metal}} /></td>
+            <td><input type="checkbox" name="system.domine.seals.major.wind" {{checked system.domine.seals.major.wind}} /></td>
+            <td><input type="checkbox" name="system.domine.seals.major.wood" {{checked system.domine.seals.major.wood}} /></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="subtab-section" data-subtab-content="ki-hab">
+    <div class="section-box">
+      <div class="section-title ki">{{localize "ABF.Ki.Habilidades"}}</div>
+      <div class="item-list">
+        {{#each kiSkills as |ks|}}<div class="item-row">{{ks.name}}</div>{{/each}}
+      </div>
+    </div>
+    <div class="section-box">
+      <div class="section-title ki">{{localize "ABF.Ki.ArtesMarciales"}}</div>
+      <div class="item-list">
+        {{#each martialArts as |ma|}}<div class="item-row">{{ma.name}} ({{ma.system.grade.value}})</div>{{/each}}
+      </div>
+    </div>
+  </div>
+</section>

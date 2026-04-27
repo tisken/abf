@@ -1,0 +1,149 @@
+<div class="abf item-sheet item-{{type}}">
+
+  {{!-- Header --}}
+  <div class="item-header">
+    <img class="item-img" src="{{item.img}}" data-edit="img" />
+    <input class="item-name" type="text" name="name" value="{{item.name}}" />
+    <span class="item-type">{{type}}</span>
+  </div>
+
+  {{!-- Weapon --}}
+  {{#if isWeapon}}
+  <div class="section-box">
+    <div class="section-title">Arma</div>
+    <table class="compact-table">
+      <tbody>
+        <tr><td class="field-label">Ataque base</td><td><input type="number" name="system.attack.base.value" value="{{system.attack.base.value}}" /></td>
+            <td class="field-label">Ataque esp.</td><td><input type="number" name="system.attack.special.value" value="{{system.attack.special.value}}" /></td></tr>
+        <tr><td class="field-label">Parada base</td><td><input type="number" name="system.block.base.value" value="{{system.block.base.value}}" /></td>
+            <td class="field-label">Parada esp.</td><td><input type="number" name="system.block.special.value" value="{{system.block.special.value}}" /></td></tr>
+        <tr><td class="field-label">Daño base</td><td><input type="number" name="system.damage.base.value" value="{{system.damage.base.value}}" /></td>
+            <td class="field-label">Daño esp.</td><td><input type="number" name="system.damage.special.value" value="{{system.damage.special.value}}" /></td></tr>
+        <tr><td class="field-label">Velocidad</td><td><input type="number" name="system.speed.base.value" value="{{system.speed.base.value}}" /></td>
+            <td class="field-label">Iniciativa</td><td><input type="number" name="system.initiative.base.value" value="{{system.initiative.base.value}}" /></td></tr>
+        <tr><td class="field-label">Crítico 1</td><td><input type="text" name="system.critic.value" value="{{system.critic.value}}" /></td>
+            <td class="field-label">Crítico 2</td><td><input type="text" name="system.critic2.value" value="{{system.critic2.value}}" /></td></tr>
+        <tr><td class="field-label">Entereza</td><td><input type="number" name="system.integrity.base.value" value="{{system.integrity.base.value}}" /></td>
+            <td class="field-label">Rotura</td><td><input type="number" name="system.breaking.base.value" value="{{system.breaking.base.value}}" /></td></tr>
+        <tr><td class="field-label">Presencia</td><td><input type="number" name="system.presence.base.value" value="{{system.presence.base.value}}" /></td>
+            <td class="field-label">Calidad</td><td><input type="number" name="system.quality.value" value="{{system.quality.value}}" /></td></tr>
+        <tr><td class="field-label">FUE req.</td><td><input type="number" name="system.strRequired.value" value="{{system.strRequired.value}}" /></td>
+            <td class="field-label">Equipada</td><td><input type="checkbox" name="system.equipped.value" {{checked system.equipped.value}} /></td></tr>
+      </tbody>
+    </table>
+  </div>
+  {{/if}}
+
+  {{!-- Armor --}}
+  {{#if isArmor}}
+  <div class="section-box">
+    <div class="section-title">Armadura</div>
+    <table class="compact-table">
+      <tbody>
+        <tr><td class="field-label">FIL</td><td><input type="number" name="system.cut.base.value" value="{{system.cut.base.value}}" /></td>
+            <td class="field-label">CON</td><td><input type="number" name="system.impact.base.value" value="{{system.impact.base.value}}" /></td></tr>
+        <tr><td class="field-label">PEN</td><td><input type="number" name="system.thrust.base.value" value="{{system.thrust.base.value}}" /></td>
+            <td class="field-label">CAL</td><td><input type="number" name="system.heat.base.value" value="{{system.heat.base.value}}" /></td></tr>
+        <tr><td class="field-label">ELE</td><td><input type="number" name="system.electricity.base.value" value="{{system.electricity.base.value}}" /></td>
+            <td class="field-label">FRI</td><td><input type="number" name="system.cold.base.value" value="{{system.cold.base.value}}" /></td></tr>
+        <tr><td class="field-label">ENE</td><td><input type="number" name="system.energy.base.value" value="{{system.energy.base.value}}" /></td>
+            <td class="field-label">Calidad</td><td><input type="number" name="system.quality.value" value="{{system.quality.value}}" /></td></tr>
+        <tr><td class="field-label">Entereza</td><td><input type="number" name="system.integrity.base.value" value="{{system.integrity.base.value}}" /></td>
+            <td class="field-label">Presencia</td><td><input type="number" name="system.presence.base.value" value="{{system.presence.base.value}}" /></td></tr>
+        <tr><td class="field-label">Req. Llevar Arm.</td><td><input type="number" name="system.wearArmorReq.value" value="{{system.wearArmorReq.value}}" /></td>
+            <td class="field-label">Rest. Mov.</td><td><input type="number" name="system.movementRestriction.base.value" value="{{system.movementRestriction.base.value}}" /></td></tr>
+        <tr><td class="field-label">Equipada</td><td><input type="checkbox" name="system.equipped.value" {{checked system.equipped.value}} /></td>
+            <td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+  {{/if}}
+
+  {{!-- Spell --}}
+  {{#if isSpell}}
+  <div class="section-box">
+    <div class="section-title">Conjuro</div>
+    <table class="compact-table">
+      <tbody>
+        <tr><td class="field-label">Nivel</td><td><input type="number" name="system.level.value" value="{{system.level.value}}" /></td>
+            <td class="field-label">Vía</td><td><input type="text" name="system.via.value" value="{{system.via.value}}" /></td></tr>
+        <tr><td class="field-label">Tipo</td><td><input type="text" name="system.spellType.value" value="{{system.spellType.value}}" /></td>
+            <td class="field-label">Acción</td><td><input type="text" name="system.actionType.value" value="{{system.actionType.value}}" /></td></tr>
+        <tr><td class="field-label">Zeón base</td><td><input type="number" name="system.grades.base.zeon.value" value="{{system.grades.base.zeon.value}}" /></td>
+            <td class="field-label">INT req.</td><td><input type="number" name="system.grades.base.intRequired.value" value="{{system.grades.base.intRequired.value}}" /></td></tr>
+        <tr><td class="field-label">Mant.</td><td><input type="number" name="system.grades.base.maintenanceCost.value" value="{{system.grades.base.maintenanceCost.value}}" /></td>
+            <td class="field-label">Mant. diario</td><td><input type="checkbox" name="system.hasDailyMaintenance.value" {{checked system.hasDailyMaintenance.value}} /></td></tr>
+      </tbody>
+    </table>
+  </div>
+  {{/if}}
+
+  {{!-- Psychic Power --}}
+  {{#if isPsychicPower}}
+  <div class="section-box">
+    <div class="section-title">Poder Psíquico</div>
+    <table class="compact-table">
+      <tbody>
+        <tr><td class="field-label">Nivel</td><td><input type="number" name="system.level.value" value="{{system.level.value}}" /></td>
+            <td class="field-label">Tipo</td><td><input type="text" name="system.combatType.value" value="{{system.combatType.value}}" /></td></tr>
+        <tr><td class="field-label">Acción</td><td><input type="text" name="system.actionType.value" value="{{system.actionType.value}}" /></td>
+            <td class="field-label">Bono</td><td><input type="number" name="system.bonus.value" value="{{system.bonus.value}}" /></td></tr>
+        <tr><td class="field-label">Mantenido</td><td><input type="checkbox" name="system.hasMaintenance.value" {{checked system.hasMaintenance.value}} /></td>
+            <td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+  {{/if}}
+
+  {{!-- Technique --}}
+  {{#if isTechnique}}
+  <div class="section-box">
+    <div class="section-title">Técnica de Ki</div>
+    <table class="compact-table">
+      <tbody>
+        <tr><td class="field-label">Nivel</td><td><input type="number" name="system.level.value" value="{{system.level.value}}" /></td>
+            <td class="field-label">CM</td><td><input type="number" name="system.martialKnowledge.value" value="{{system.martialKnowledge.value}}" /></td></tr>
+        <tr><td class="field-label">FUE</td><td><input type="number" name="system.strength.value" value="{{system.strength.value}}" /></td>
+            <td class="field-label">DES</td><td><input type="number" name="system.dexterity.value" value="{{system.dexterity.value}}" /></td></tr>
+        <tr><td class="field-label">AGI</td><td><input type="number" name="system.agility.value" value="{{system.agility.value}}" /></td>
+            <td class="field-label">CON</td><td><input type="number" name="system.constitution.value" value="{{system.constitution.value}}" /></td></tr>
+        <tr><td class="field-label">POD</td><td><input type="number" name="system.power.value" value="{{system.power.value}}" /></td>
+            <td class="field-label">VOL</td><td><input type="number" name="system.willPower.value" value="{{system.willPower.value}}" /></td></tr>
+      </tbody>
+    </table>
+  </div>
+  {{/if}}
+
+  {{!-- Advantage / Disadvantage --}}
+  {{#if isAdvantage}}
+  <div class="section-box">
+    <div class="section-title">Ventaja</div>
+    <table class="compact-table">
+      <tbody>
+        <tr><td class="field-label">Coste PC</td><td><input type="number" name="system.cost.value" value="{{system.cost.value}}" /></td>
+            <td class="field-label">Categoría</td><td><input type="text" name="system.category.value" value="{{system.category.value}}" /></td></tr>
+      </tbody>
+    </table>
+  </div>
+  {{/if}}
+  {{#if isDisadvantage}}
+  <div class="section-box">
+    <div class="section-title">Desventaja</div>
+    <table class="compact-table">
+      <tbody>
+        <tr><td class="field-label">Coste PC</td><td><input type="number" name="system.cost.value" value="{{system.cost.value}}" /></td>
+            <td class="field-label">Categoría</td><td><input type="text" name="system.category.value" value="{{system.category.value}}" /></td></tr>
+      </tbody>
+    </table>
+  </div>
+  {{/if}}
+
+  {{!-- Description (always present, always empty by default) --}}
+  <div class="section-box">
+    <div class="section-title">Descripción</div>
+    <div class="textarea-box">
+      <textarea name="system.description.value" rows="6">{{system.description.value}}</textarea>
+    </div>
+  </div>
+
+</div>

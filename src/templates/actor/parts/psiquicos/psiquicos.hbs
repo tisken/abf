@@ -1,0 +1,50 @@
+<section class="tab-psiquicos">
+  <div class="combat-summary-bar">
+    <span>{{localize "ABF.Psi.CV"}}: <strong>{{system.psychic.psychicPoints.value}}</strong>/{{system.psychic.psychicPoints.max}}</span>
+    <span>{{localize "ABF.Psi.Potencial"}}: <strong>{{system.psychic.psychicPotential.final.value}}</strong></span>
+  </div>
+
+  <nav class="sub-tabs" data-subtab-group="psiquicos">
+    <button type="button" class="active" data-subtab="psi-resumen">{{localize "ABF.Psi.Resumen"}}</button>
+    <button type="button" data-subtab="psi-poderes">{{localize "ABF.Psi.Poderes"}}</button>
+  </nav>
+
+  <div class="subtab-section active" data-subtab-content="psi-resumen">
+    <div class="combat-grid">
+      <div class="section-box">
+        <div class="section-title psychic">{{localize "ABF.Psi.ProyPsiquica"}}</div>
+        <table class="compact-table">
+          <thead><tr><th></th><th>{{localize "ABF.Principal.Base"}}</th><th>{{localize "ABF.Principal.Final"}}</th></tr></thead>
+          <tbody>
+            <tr><td class="field-label">{{localize "ABF.Psi.ProyPsiquica"}}</td>
+              <td><input type="number" name="system.psychic.psychicProjection.base.value" value="{{system.psychic.psychicProjection.base.value}}" /></td>
+              <td><strong>{{system.psychic.psychicProjection.final.value}}</strong></td></tr>
+            <tr><td class="field-label">{{localize "ABF.Psi.Potencial"}}</td>
+              <td><strong>{{system.psychic.psychicPotential.base.value}}</strong></td>
+              <td><strong>{{system.psychic.psychicPotential.final.value}}</strong></td></tr>
+            <tr><td class="field-label">{{localize "ABF.Psi.CV"}}</td>
+              <td><input type="number" name="system.psychic.psychicPoints.value" value="{{system.psychic.psychicPoints.value}}" /></td>
+              <td>/ {{system.psychic.psychicPoints.max}}</td></tr>
+            <tr><td class="field-label">{{localize "ABF.Psi.Innatos"}}</td>
+              <td colspan="2"><input type="number" name="system.psychic.innatePsychicPower.amount.value" value="{{system.psychic.innatePsychicPower.amount.value}}" /></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="section-box">
+        <div class="section-title psychic">{{localize "ABF.Psi.Disciplinas"}}</div>
+        <div class="item-list">
+          {{#each psychicDisciplines as |disc|}}<div class="item-row">{{disc.name}}</div>{{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtab-section" data-subtab-content="psi-poderes">
+    <div class="section-box">
+      <div class="section-title psychic">{{localize "ABF.Psi.Poderes"}}</div>
+      <div class="item-list">
+        {{#each psychicPowers as |pw|}}<div class="item-row">{{pw.name}} — Nv {{pw.system.level.value}}</div>{{/each}}
+      </div>
+    </div>
+  </div>
+</section>

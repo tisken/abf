@@ -1,0 +1,87 @@
+<section class="tab-misticos">
+  <div class="combat-summary-bar">
+    <span>{{localize "ABF.Mist.Zeon"}}: <strong>{{system.mystic.zeon.value}}</strong>/{{system.mystic.zeon.max}}</span>
+    <span>{{localize "ABF.Mist.ACT"}}: <strong>{{system.mystic.act.main.final.value}}</strong></span>
+    <span>{{localize "ABF.Mist.Mantenido"}}: <strong>{{system.mystic.zeonMaintained.value}}</strong></span>
+  </div>
+
+  <nav class="sub-tabs" data-subtab-group="mistico">
+    <button type="button" class="active" data-subtab="mist-resumen">{{localize "ABF.Mist.Resumen"}}</button>
+    <button type="button" data-subtab="mist-conjuros">{{localize "ABF.Mist.Conjuros"}}</button>
+    <button type="button" data-subtab="mist-innata">{{localize "ABF.Mist.MagiaInnata"}}</button>
+    <button type="button" data-subtab="mist-arbol">{{localize "ABF.Mist.Arbol"}}</button>
+  </nav>
+
+  <div class="subtab-section active" data-subtab-content="mist-resumen">
+    <div class="combat-grid">
+      <div class="section-box">
+        <div class="section-title magic">{{localize "ABF.Mist.ProyMagica"}}</div>
+        <table class="compact-table">
+          <thead><tr><th></th><th>{{localize "ABF.Principal.Base"}}</th><th>{{localize "ABF.Principal.Final"}}</th></tr></thead>
+          <tbody>
+            <tr><td class="field-label">{{localize "ABF.Mist.ProyMagica"}}</td>
+              <td><input type="number" name="system.mystic.magicProjection.base.value" value="{{system.mystic.magicProjection.base.value}}" /></td>
+              <td><strong>{{system.mystic.magicProjection.final.value}}</strong></td></tr>
+            <tr><td class="field-label">Ofensiva</td>
+              <td><input type="number" name="system.mystic.magicProjection.imbalance.offensive.base.value" value="{{system.mystic.magicProjection.imbalance.offensive.base.value}}" /></td>
+              <td><strong>{{system.mystic.magicProjection.imbalance.offensive.final.value}}</strong></td></tr>
+            <tr><td class="field-label">Defensiva</td>
+              <td><input type="number" name="system.mystic.magicProjection.imbalance.defensive.base.value" value="{{system.mystic.magicProjection.imbalance.defensive.base.value}}" /></td>
+              <td><strong>{{system.mystic.magicProjection.imbalance.defensive.final.value}}</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="section-box">
+        <div class="section-title magic">{{localize "ABF.Mist.Zeon"}} / {{localize "ABF.Mist.ACT"}}</div>
+        <table class="compact-table">
+          <tbody>
+            <tr><td class="field-label">{{localize "ABF.Mist.Zeon"}}</td>
+              <td><input type="number" name="system.mystic.zeon.value" value="{{system.mystic.zeon.value}}" /></td>
+              <td>/ {{system.mystic.zeon.max}}</td></tr>
+            <tr><td class="field-label">{{localize "ABF.Mist.RegZeon"}}</td><td colspan="2"><strong>{{system.mystic.zeonRegeneration.final.value}}</strong></td></tr>
+            <tr><td class="field-label">{{localize "ABF.Mist.ACT"}}</td><td colspan="2"><strong>{{system.mystic.act.main.final.value}}</strong></td></tr>
+            <tr><td class="field-label">{{localize "ABF.Mist.NvMagico"}}</td>
+              <td><input type="number" name="system.mystic.magicLevel.used.value" value="{{system.mystic.magicLevel.used.value}}" /></td>
+              <td>/ <input type="number" name="system.mystic.magicLevel.total.value" value="{{system.mystic.magicLevel.total.value}}" style="width:40px" /></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="section-box">
+        <div class="section-title magic">{{localize "ABF.Mist.Convocatoria"}}</div>
+        <table class="compact-table">
+          <thead><tr><th></th><th>{{localize "ABF.Principal.Base"}}</th><th>{{localize "ABF.Principal.Final"}}</th></tr></thead>
+          <tbody>
+            <tr><td class="field-label">{{localize "ABF.Mist.Convocar"}}</td><td><input type="number" name="system.mystic.summoning.summon.base.value" value="{{system.mystic.summoning.summon.base.value}}" /></td><td><strong>{{system.mystic.summoning.summon.final.value}}</strong></td></tr>
+            <tr><td class="field-label">{{localize "ABF.Mist.Dominar"}}</td><td><input type="number" name="system.mystic.summoning.control.base.value" value="{{system.mystic.summoning.control.base.value}}" /></td><td><strong>{{system.mystic.summoning.control.final.value}}</strong></td></tr>
+            <tr><td class="field-label">{{localize "ABF.Mist.Atar"}}</td><td><input type="number" name="system.mystic.summoning.bind.base.value" value="{{system.mystic.summoning.bind.base.value}}" /></td><td><strong>{{system.mystic.summoning.bind.final.value}}</strong></td></tr>
+            <tr><td class="field-label">{{localize "ABF.Mist.Desconvocar"}}</td><td><input type="number" name="system.mystic.summoning.banish.base.value" value="{{system.mystic.summoning.banish.base.value}}" /></td><td><strong>{{system.mystic.summoning.banish.final.value}}</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="section-box">
+        <div class="section-title magic">{{localize "ABF.Mist.Metamagia"}}</div>
+        <div class="item-list">
+          {{#each metamagics as |m|}}<div class="item-row">{{m.name}}</div>{{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subtab-section" data-subtab-content="mist-conjuros">
+    <div class="section-box"><div class="section-title magic">{{localize "ABF.Mist.Conjuros"}}</div>
+      <div class="item-list">{{#each spells as |sp|}}<div class="item-row">{{sp.name}} — Nv {{sp.system.level.value}}</div>{{/each}}</div>
+    </div>
+  </div>
+
+  <div class="subtab-section" data-subtab-content="mist-innata">
+    <div class="section-box"><div class="section-title magic">{{localize "ABF.Mist.MagiaInnata"}}</div>
+      <p class="placeholder">Tabla de magia innata — Fase posterior</p>
+    </div>
+  </div>
+
+  <div class="subtab-section" data-subtab-content="mist-arbol">
+    <div class="section-box"><div class="section-title magic">{{localize "ABF.Mist.Arbol"}}</div>
+      <p class="placeholder">Árbol de magia — Fase posterior</p>
+    </div>
+  </div>
+</section>

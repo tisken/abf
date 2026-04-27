@@ -1,0 +1,69 @@
+<section class="tab-personalizacion">
+
+  <div class="section-box">
+    <div class="section-title">{{localize "ABF.Config.SistemasActivos"}}</div>
+    <div class="toggle-grid">
+      <label class="toggle-row">
+        <input type="checkbox" name="system.config.hasKi" {{checked system.config.hasKi}} />
+        {{localize "ABF.Config.Ki"}}
+      </label>
+      <label class="toggle-row">
+        <input type="checkbox" name="system.config.hasTechniques" {{checked system.config.hasTechniques}} />
+        {{localize "ABF.Config.Tecnicas"}}
+      </label>
+      <label class="toggle-row">
+        <input type="checkbox" name="system.config.hasMagic" {{checked system.config.hasMagic}} />
+        {{localize "ABF.Config.Magia"}}
+      </label>
+      <label class="toggle-row">
+        <input type="checkbox" name="system.config.hasPsychic" {{checked system.config.hasPsychic}} />
+        {{localize "ABF.Config.Psiquica"}}
+      </label>
+      <label class="toggle-row">
+        <input type="checkbox" name="system.config.hasElan" {{checked system.config.hasElan}} />
+        {{localize "ABF.Config.Elan"}}
+      </label>
+      <label class="toggle-row">
+        <input type="checkbox" name="system.config.hasGrimoires" {{checked system.config.hasGrimoires}} />
+        {{localize "ABF.Config.Grimorios"}}
+      </label>
+    </div>
+  </div>
+
+  <div class="section-box">
+    <div class="section-title">{{localize "ABF.Config.Visualizacion"}}</div>
+    <div class="toggle-grid">
+      <label class="toggle-row">
+        <input type="checkbox" name="system.config.showCombatInResumen" {{checked system.config.showCombatInResumen}} />
+        {{localize "ABF.Config.MostrarCombate"}}
+      </label>
+      <label class="toggle-row">
+        <input type="checkbox" name="system.config.showKiInResumen" {{checked system.config.showKiInResumen}} />
+        {{localize "ABF.Config.MostrarKi"}}
+      </label>
+      <label class="toggle-row">
+        <input type="checkbox" name="system.config.showMagicInResumen" {{checked system.config.showMagicInResumen}} />
+        {{localize "ABF.Config.MostrarMagia"}}
+      </label>
+      <label class="toggle-row">
+        <input type="checkbox" name="system.config.showPsychicInResumen" {{checked system.config.showPsychicInResumen}} />
+        {{localize "ABF.Config.MostrarPsiquica"}}
+      </label>
+    </div>
+  </div>
+
+  <div class="section-box">
+    <div class="section-title">{{localize "ABF.Config.Automatizacion"}}</div>
+    <div class="toggle-grid">
+      <label class="toggle-row">
+        <input type="checkbox" name="system.config.autoCalculate" {{checked system.config.autoCalculate}} />
+        {{localize "ABF.Config.AutoCalcular"}}
+      </label>
+      <label class="toggle-row">
+        <input type="checkbox" name="system.config.compactMode" {{checked system.config.compactMode}} />
+        {{localize "ABF.Config.ModoCompacto"}}
+      </label>
+    </div>
+  </div>
+
+</section>
