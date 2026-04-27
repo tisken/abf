@@ -125,7 +125,8 @@ export class ABFActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       rejectClose: false
     });
     if (!r) return;
-    const ex = actor.system.general.levels ?? [];
+    const raw = actor.system.general.levels;
+    const ex = Array.isArray(raw) ? raw : [];
     const pd = {}; for (const k of 'attack,block,dodge,wearArmor,zeon,act,magicProjection,summon,control,bind,banish,cv,psychicProjection,ki,kiAccum,athletic,social,perceptive,intellectual,vigor,subterfuge,creative,lifeMultiples'.split(',')) pd[k] = { value: 0 };
     await actor.update({ 'system.general.levels': [...ex, { _id: foundry.utils.randomID(), name: r.c, system: { level: r.n, order: ex.length + 1, pd } }] });
   }
@@ -133,7 +134,8 @@ export class ABFActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static async #onDeleteLevel(event, target) {
     const actor = this.document;
     const idx = +target.dataset.levelIdx;
-    const levels = [...(actor.system.general.levels ?? [])];
+    const rawLvl = actor.system.general.levels;
+    const levels = Array.isArray(rawLvl) ? [...rawLvl] : [];
     if (idx >= 0 && idx < levels.length) { levels.splice(idx, 1); levels.forEach((l, i) => l.system && (l.system.order = i + 1)); await actor.update({ 'system.general.levels': levels }); }
   }
 }
