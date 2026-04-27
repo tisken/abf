@@ -61,6 +61,41 @@ function actFromPod(v) {
   return ACT_TABLE[v] || 0;
 }
 
+// Regeneration table: CON → regen type (0-12)
+const REGEN_TYPE = [0,0,0,1,1,1,1,1,2,2,3,4,5,6,7,8,9,10,11,12,12];
+function regenType(con) {
+  if (con <= 0) return 0;
+  if (con >= REGEN_TYPE.length) return 12;
+  return REGEN_TYPE[con] || 0;
+}
+
+// Movement table: AGI → movement type
+const MOVE_TYPE = [0,1,1,1,2,3,4,4,5,6,8,8,10,10,12,12,15,15,15,15,15];
+function moveType(agi) {
+  if (agi <= 0) return 0;
+  if (agi >= MOVE_TYPE.length) return 15;
+  return MOVE_TYPE[agi] || 0;
+}
+
+// Secondary skill → governing stat
+const SEC_STAT_MAP = {
+  acrobatics:'agility', athleticism:'agility', ride:'agility', swim:'agility',
+  climb:'agility', jump:'strength', piloting:'dexterity',
+  composure:'willPower', featsOfStrength:'strength', withstandPain:'willPower',
+  notice:'perception', search:'perception', track:'perception',
+  animals:'intelligence', science:'intelligence', law:'intelligence',
+  herbalLore:'intelligence', history:'intelligence', tactics:'intelligence',
+  medicine:'intelligence', memorize:'intelligence', navigation:'intelligence',
+  occult:'intelligence', appraisal:'intelligence', magicAppraisal:'power',
+  style:'power', intimidate:'willPower', leadership:'power',
+  persuasion:'intelligence', trading:'intelligence', streetwise:'intelligence', etiquette:'intelligence',
+  lockPicking:'dexterity', disguise:'dexterity', hide:'perception',
+  theft:'dexterity', stealth:'agility', trapLore:'perception', poisons:'intelligence',
+  art:'power', dance:'agility', forging:'dexterity', runes:'dexterity',
+  alchemy:'intelligence', animism:'power', music:'power', sleightOfHand:'dexterity',
+  ritualCalligraphy:'dexterity', jewelry:'dexterity', tailoring:'dexterity', puppetMaking:'power'
+};
+
 // XP for next level
 function xpForLevel(level) {
   if (level <= 0) return 0;
@@ -259,8 +294,8 @@ export function runCalculationPipeline(system) {
   d.psychic.psychicPoints.max += pdCV + totalCV;
   d.psychic.psychicProjection.base.value += pdPsychicProj;
 
-  // Category progression
-  s.initiative.base.value += totalTurnBonus;
+  // Category progression — initiative base = 20 + AGI_mod + DES_mod + category turn bonus
+  s.initiative.base.value = 20 + safeNum(p.agility?.mod?.value) + safeNum(p.dexterity?.mod?.value) + totalTurnBonus;
   d.domine.martialKnowledge.max.value += totalMK;
 
   // 10. Combat finals
@@ -310,6 +345,42 @@ export function runCalculationPipeline(system) {
     kiTotal += kiFromStat(val);
   }
   d.domine.kiAccumulation.generic.max = kiTotal;
+
+  // 14b. Regeneration type from CON
+  s.regenerationType.mod.value = regenType(conVal);
+  s.regenerationType.final.value = safeNum(s.regenerationType.mod.value);
+
+  // 14c. Movement type from AGI
+  const agiVal = safeNum(p.agility?.value);
+  s.movementType.mod.value = moveType(agiVal);
+  s.movementType.final.value = safeNum(s.movementType.mod.value);
+
+  // 14d. Secondary skills: innate bonuses from category + final calculation
+  const sec = d.secondaries;
+  if (sec) {
+    // Accumulate innate secondary bonuses from all level blocks
+    const innateSecAcc = {};
+    for (const lvl of levels) {
+      const catData = CATEGORY_DATA[lvl.name];
+      const catLevel = safeNum(lvl.system?.level);
+      if (!catData?.innateSecondary || catLevel <= 0) continue;
+      for (const [skill, bonus] of Object.entries(catData.innateSecondary)) {
+        innateSecAcc[skill] = (innateSecAcc[skill] || 0) + bonus * catLevel;
+      }
+    }
+
+    const natPen = safeNum(d.general.modifiers.naturalPenalty.final.value);
+    for (const [groupKey, group] of Object.entries(sec)) {
+      if (!group || typeof group !== 'object') continue;
+      for (const [skillKey, skill] of Object.entries(group)) {
+        if (!skill?.base) continue;
+        const statName = SEC_STAT_MAP[skillKey];
+        const statMod = statName ? safeNum(p[statName]?.mod?.value) : 0;
+        const innateBonus = innateSecAcc[skillKey] || 0;
+        skill.final.value = safeNum(skill.base.value) + statMod + safeNum(skill.special.value) + innateBonus + natPen;
+      }
+    }
+  }
 
   // 15. Life points
   const conVal = safeNum(p.constitution?.value);

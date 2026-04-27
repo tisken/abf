@@ -45,7 +45,19 @@ export const CATEGORY_DATA = {
       "vigor": 2,
       "subterfuge": 2,
       "creative": 2
-    }
+    },
+    "individualCosts": {
+      "featsOfStrength": 1,
+      "withstandPain": 3,
+      "composure": 3,
+      "trapLore": 3,
+      "stealth": 3,
+      "sleightOfHand": 3,
+      "persuasion": 3
+},
+    "innateSecondary": {
+      "featsOfStrength": 5
+}
   },
   "Guerrero Acróbata": {
     "turnPerLevel": 10,
@@ -88,7 +100,23 @@ export const CATEGORY_DATA = {
       "vigor": 2,
       "subterfuge": 2,
       "creative": 2
-    }
+    },
+    "individualCosts": {
+      "featsOfStrength": 3,
+      "withstandPain": 3,
+      "composure": 3,
+      "trapLore": 3,
+      "stealth": 3,
+      "sleightOfHand": 3,
+      "persuasion": 3
+},
+    "innateSecondary": {
+      "acrobatics": 10,
+      "jump": 10,
+      "athleticism": 10,
+      "sleightOfHand": 10,
+      "style": 10
+}
   },
   "Paladín": {
     "turnPerLevel": 5,
@@ -131,7 +159,26 @@ export const CATEGORY_DATA = {
       "vigor": 2,
       "subterfuge": 3,
       "creative": 2
-    }
+    },
+    "individualCosts": {
+      "featsOfStrength": 3,
+      "withstandPain": 1,
+      "composure": 3,
+      "herbalLore": 3,
+      "animals": 3,
+      "medicine": 3,
+      "appraisal": 3,
+      "memorize": 3,
+      "magicAppraisal": 3,
+      "sleightOfHand": 3,
+      "persuasion": 3,
+      "occult": 3
+},
+    "innateSecondary": {
+      "style": 5,
+      "leadership": 10,
+      "withstandPain": 10
+}
   },
   "Paladín (F)": {
     "turnPerLevel": 5,
@@ -174,7 +221,27 @@ export const CATEGORY_DATA = {
       "vigor": 2,
       "subterfuge": 3,
       "creative": 2
-    }
+    },
+    "individualCosts": {
+      "featsOfStrength": 3,
+      "withstandPain": 1,
+      "composure": 3,
+      "herbalLore": 3,
+      "animals": 3,
+      "medicine": 3,
+      "appraisal": 3,
+      "memorize": 3,
+      "magicAppraisal": 3,
+      "sleightOfHand": 3,
+      "persuasion": 3,
+      "occult": 3
+},
+    "innateSecondary": {
+      "style": 5,
+      "leadership": 10,
+      "withstandPain": 10,
+      "composure": 10
+}
   },
   "Paladín Oscuro": {
     "turnPerLevel": 5,
@@ -217,7 +284,29 @@ export const CATEGORY_DATA = {
       "vigor": 2,
       "subterfuge": 2,
       "creative": 2
-    }
+    },
+    "individualCosts": {
+      "featsOfStrength": 3,
+      "withstandPain": 3,
+      "composure": 1,
+      "trapLore": 3,
+      "herbalLore": 3,
+      "animals": 3,
+      "medicine": 3,
+      "appraisal": 3,
+      "stealth": 3,
+      "memorize": 3,
+      "magicAppraisal": 3,
+      "sleightOfHand": 3,
+      "persuasion": 3,
+      "occult": 3
+},
+    "innateSecondary": {
+      "style": 5,
+      "intimidate": 10,
+      "composure": 10,
+      "persuasion": 5
+}
   },
   "Paladín Oscuro (RD)": {
     "turnPerLevel": 5,
@@ -260,7 +349,30 @@ export const CATEGORY_DATA = {
       "vigor": 2,
       "subterfuge": 2,
       "creative": 2
-    }
+    },
+    "individualCosts": {
+      "featsOfStrength": 3,
+      "withstandPain": 3,
+      "composure": 1,
+      "trapLore": 3,
+      "herbalLore": 3,
+      "animals": 3,
+      "medicine": 3,
+      "appraisal": 3,
+      "stealth": 3,
+      "memorize": 3,
+      "magicAppraisal": 3,
+      "sleightOfHand": 3,
+      "persuasion": 3,
+      "occult": 3
+},
+    "innateSecondary": {
+      "style": 5,
+      "withstandPain": 10,
+      "intimidate": 10,
+      "composure": 10,
+      "persuasion": 5
+}
   },
   "Maestro en Armas": {
     "turnPerLevel": 5,
@@ -303,7 +415,17 @@ export const CATEGORY_DATA = {
       "vigor": 1,
       "subterfuge": 3,
       "creative": 2
-    }
+    },
+    "individualCosts": {
+      "featsOfStrength": 3,
+      "withstandPain": 3,
+      "composure": 3,
+      "sleightOfHand": 3,
+      "persuasion": 3
+},
+    "innateSecondary": {
+      "featsOfStrength": 5
+}
   },
   "Tecnicista": {
     "turnPerLevel": 5,
@@ -346,7 +468,16 @@ export const CATEGORY_DATA = {
       "vigor": 2,
       "subterfuge": 2,
       "creative": 2
-    }
+    },
+    "individualCosts": {
+      "featsOfStrength": 3,
+      "withstandPain": 3,
+      "composure": 3,
+      "trapLore": 3,
+      "stealth": 3,
+      "sleightOfHand": 3,
+      "persuasion": 3
+}
   },
   "Tao": {
     "turnPerLevel": 5,
@@ -389,7 +520,19 @@ export const CATEGORY_DATA = {
       "vigor": 2,
       "subterfuge": 2,
       "creative": 2
-    }
+    },
+    "individualCosts": {
+      "featsOfStrength": 3,
+      "withstandPain": 3,
+      "composure": 3,
+      "trapLore": 3,
+      "stealth": 3,
+      "sleightOfHand": 3,
+      "persuasion": 3
+},
+    "innateSecondary": {
+      "style": 5
+}
   },
   "Explorador": {
     "turnPerLevel": 5,
@@ -432,7 +575,24 @@ export const CATEGORY_DATA = {
       "vigor": 3,
       "subterfuge": 2,
       "creative": 2
-    }
+    },
+    "individualCosts": {
+      "trapLore": 1,
+      "herbalLore": 2,
+      "animals": 1,
+      "medicine": 2,
+      "stealth": 3,
+      "sleightOfHand": 3,
+      "persuasion": 3
+},
+    "innateSecondary": {
+      "notice": 10,
+      "search": 10,
+      "track": 10,
+      "trapLore": 5,
+      "animals": 5,
+      "herbalLore": 5
+}
   },
   "Sombra": {
     "turnPerLevel": 10,
@@ -475,7 +635,22 @@ export const CATEGORY_DATA = {
       "vigor": 2,
       "subterfuge": 2,
       "creative": 2
-    }
+    },
+    "individualCosts": {
+      "featsOfStrength": 3,
+      "withstandPain": 3,
+      "composure": 3,
+      "trapLore": 3,
+      "stealth": 3,
+      "sleightOfHand": 3,
+      "persuasion": 3
+},
+    "innateSecondary": {
+      "notice": 10,
+      "search": 10,
+      "hide": 10,
+      "stealth": 10
+}
   },
   "Ladrón": {
     "turnPerLevel": 10,
@@ -518,7 +693,23 @@ export const CATEGORY_DATA = {
       "vigor": 3,
       "subterfuge": 1,
       "creative": 2
-    }
+    },
+    "individualCosts": {
+      "trapLore": 3,
+      "appraisal": 1,
+      "stealth": 3,
+      "sleightOfHand": 3,
+      "persuasion": 3
+},
+    "innateSecondary": {
+      "sleightOfHand": 5,
+      "notice": 5,
+      "search": 5,
+      "trapLore": 5,
+      "hide": 5,
+      "stealth": 5,
+      "theft": 10
+}
   },
   "Asesino": {
     "turnPerLevel": 10,
@@ -561,7 +752,24 @@ export const CATEGORY_DATA = {
       "vigor": 3,
       "subterfuge": 2,
       "creative": 2
-    }
+    },
+    "individualCosts": {
+      "composure": 2,
+      "trapLore": 3,
+      "stealth": 1,
+      "memorize": 2,
+      "sleightOfHand": 3,
+      "persuasion": 3
+},
+    "innateSecondary": {
+      "composure": 10,
+      "notice": 10,
+      "search": 10,
+      "trapLore": 10,
+      "hide": 10,
+      "stealth": 10,
+      "poisons": 10
+}
   },
   "Hechicero": {
     "turnPerLevel": 5,
@@ -604,7 +812,24 @@ export const CATEGORY_DATA = {
       "vigor": 3,
       "subterfuge": 2,
       "creative": 2
-    }
+    },
+    "individualCosts": {
+      "trapLore": 3,
+      "herbalLore": 3,
+      "animals": 3,
+      "medicine": 3,
+      "appraisal": 3,
+      "stealth": 3,
+      "memorize": 3,
+      "magicAppraisal": 1,
+      "sleightOfHand": 3,
+      "persuasion": 3,
+      "occult": 3
+},
+    "innateSecondary": {
+      "occult": 5,
+      "magicAppraisal": 10
+}
   },
   "Warlock": {
     "turnPerLevel": 5,
@@ -647,7 +872,26 @@ export const CATEGORY_DATA = {
       "vigor": 2,
       "subterfuge": 2,
       "creative": 2
-    }
+    },
+    "individualCosts": {
+      "featsOfStrength": 3,
+      "withstandPain": 3,
+      "composure": 3,
+      "trapLore": 3,
+      "herbalLore": 3,
+      "animals": 3,
+      "medicine": 3,
+      "appraisal": 3,
+      "stealth": 3,
+      "memorize": 3,
+      "magicAppraisal": 3,
+      "sleightOfHand": 3,
+      "persuasion": 3,
+      "occult": 3
+},
+    "innateSecondary": {
+      "magicAppraisal": 5
+}
   },
   "Ilusionista": {
     "turnPerLevel": 5,
@@ -690,7 +934,29 @@ export const CATEGORY_DATA = {
       "vigor": 3,
       "subterfuge": 2,
       "creative": 2
-    }
+    },
+    "individualCosts": {
+      "trapLore": 3,
+      "herbalLore": 3,
+      "animals": 3,
+      "medicine": 3,
+      "appraisal": 3,
+      "stealth": 3,
+      "memorize": 3,
+      "magicAppraisal": 3,
+      "sleightOfHand": 1,
+      "persuasion": 1,
+      "occult": 3
+},
+    "innateSecondary": {
+      "sleightOfHand": 10,
+      "persuasion": 5,
+      "hide": 10,
+      "stealth": 10,
+      "theft": 5,
+      "magicAppraisal": 5,
+      "disguise": 5
+}
   },
   "Hechicero Mentalista": {
     "turnPerLevel": 5,
@@ -733,7 +999,24 @@ export const CATEGORY_DATA = {
       "vigor": 3,
       "subterfuge": 2,
       "creative": 2
-    }
+    },
+    "individualCosts": {
+      "trapLore": 3,
+      "herbalLore": 3,
+      "animals": 3,
+      "medicine": 3,
+      "appraisal": 3,
+      "stealth": 3,
+      "memorize": 3,
+      "magicAppraisal": 3,
+      "sleightOfHand": 3,
+      "persuasion": 3,
+      "occult": 3
+},
+    "innateSecondary": {
+      "occult": 5,
+      "magicAppraisal": 10
+}
   },
   "Conjurador": {
     "turnPerLevel": 5,
@@ -776,7 +1059,24 @@ export const CATEGORY_DATA = {
       "vigor": 3,
       "subterfuge": 2,
       "creative": 2
-    }
+    },
+    "individualCosts": {
+      "trapLore": 3,
+      "herbalLore": 3,
+      "animals": 3,
+      "medicine": 3,
+      "appraisal": 3,
+      "stealth": 3,
+      "memorize": 3,
+      "magicAppraisal": 3,
+      "sleightOfHand": 3,
+      "persuasion": 3,
+      "occult": 1
+},
+    "innateSecondary": {
+      "occult": 10,
+      "magicAppraisal": 5
+}
   },
   "Guerrero Conjurador": {
     "turnPerLevel": 5,
@@ -819,7 +1119,26 @@ export const CATEGORY_DATA = {
       "vigor": 2,
       "subterfuge": 2,
       "creative": 2
-    }
+    },
+    "individualCosts": {
+      "featsOfStrength": 3,
+      "withstandPain": 3,
+      "composure": 3,
+      "trapLore": 3,
+      "herbalLore": 3,
+      "animals": 3,
+      "medicine": 3,
+      "appraisal": 3,
+      "stealth": 3,
+      "memorize": 3,
+      "magicAppraisal": 3,
+      "sleightOfHand": 3,
+      "persuasion": 3,
+      "occult": 3
+},
+    "innateSecondary": {
+      "occult": 5
+}
   },
   "Mentalista": {
     "turnPerLevel": 5,
@@ -862,7 +1181,20 @@ export const CATEGORY_DATA = {
       "vigor": 3,
       "subterfuge": 2,
       "creative": 2
-    }
+    },
+    "individualCosts": {
+      "trapLore": 3,
+      "herbalLore": 3,
+      "animals": 3,
+      "medicine": 3,
+      "appraisal": 3,
+      "stealth": 3,
+      "memorize": 3,
+      "magicAppraisal": 3,
+      "sleightOfHand": 3,
+      "persuasion": 3,
+      "occult": 3
+}
   },
   "Guerrero Mentalista": {
     "turnPerLevel": 5,
@@ -905,7 +1237,16 @@ export const CATEGORY_DATA = {
       "vigor": 2,
       "subterfuge": 2,
       "creative": 2
-    }
+    },
+    "individualCosts": {
+      "featsOfStrength": 3,
+      "withstandPain": 3,
+      "composure": 3,
+      "trapLore": 3,
+      "stealth": 3,
+      "sleightOfHand": 3,
+      "persuasion": 3
+}
   },
   "Novel": {
     "turnPerLevel": 5,
@@ -948,6 +1289,22 @@ export const CATEGORY_DATA = {
       "vigor": 2,
       "subterfuge": 2,
       "creative": 2
-    }
+    },
+    "individualCosts": {
+      "featsOfStrength": 3,
+      "withstandPain": 3,
+      "composure": 3,
+      "trapLore": 3,
+      "herbalLore": 3,
+      "animals": 3,
+      "medicine": 3,
+      "appraisal": 3,
+      "stealth": 3,
+      "memorize": 3,
+      "magicAppraisal": 3,
+      "sleightOfHand": 3,
+      "persuasion": 3,
+      "occult": 3
+}
   }
 };
