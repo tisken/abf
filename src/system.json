@@ -1,19 +1,20 @@
 {
   "id": "abf",
-  "title": "ABF — Anima Beyond Fantasy",
-  "description": "Sistema de Anima Beyond Fantasy para Foundry VTT v14. Ficha completa, cálculos automáticos, 1879 items, ES/EN.",
-  "version": "0.1.0",
+  "title": "ABF — Anima Beyond Fantasy (v14)",
+  "description": "Sistema no oficial de Anima Beyond Fantasy para Foundry VTT v14. Ficha completa, cálculos automáticos, tirada abierta d100, combate, ES/EN. NO es el sistema animabf — es un sistema nuevo independiente.",
+  "version": "0.1.1",
   "compatibility": {
     "minimum": "14",
     "verified": "14.360"
   },
-  "url": "https://github.com/tisken/animabeyondfantasy",
-  "manifest": "https://raw.githubusercontent.com/tisken/animabeyondfantasy/main/ABF/src/system.json",
-  "download": "https://github.com/tisken/animabeyondfantasy/raw/main/dist/abf.zip",
+  "url": "https://github.com/tisken/abf",
+  "manifest": "https://raw.githubusercontent.com/tisken/abf/main/src/system.json",
+  "download": "https://github.com/tisken/abf/releases/latest/download/abf.zip",
+  "changelog": "https://github.com/tisken/abf/blob/main/docs/public/README.md",
+  "bugs": "https://github.com/tisken/abf/issues",
   "authors": [
-    { "name": "tisken" },
-    { "name": "Linkaynn" },
-    { "name": "Julen Bordonaba" }
+    { "name": "Dragug" },
+    { "name": "tisken" }
   ],
   "esmodules": ["module/abf.mjs"],
   "styles": ["abf.css"],
