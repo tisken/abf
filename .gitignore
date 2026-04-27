@@ -1,2 +1,6 @@
 # Internal documentation — development only, do not publish
 docs/internal/
+
+# Pack source JSONs (intermediate, compiled to LevelDB)
+packs/_source/
+scripts/

@@ -2,7 +2,7 @@
   "id": "abf",
   "title": "ABF — Anima Beyond Fantasy (v14)",
   "description": "Sistema no oficial de Anima Beyond Fantasy para Foundry VTT v14. Ficha completa, cálculos automáticos, tirada abierta d100, combate, ES/EN. NO es el sistema animabf — es un sistema nuevo independiente.",
-  "version": "0.2.4",
+  "version": "0.3.0",
   "compatibility": {
     "minimum": "14",
     "verified": "14.360"
@@ -19,7 +19,18 @@
   "esmodules": ["module/abf.mjs"],
   "styles": ["abf.css"],
   "socket": true,
-  "packs": [],
+  "packs": [
+    { "name": "weapons", "label": "Armas y Munición", "path": "packs/weapons", "type": "Item", "system": "abf" },
+    { "name": "armors", "label": "Armaduras", "path": "packs/armors", "type": "Item", "system": "abf" },
+    { "name": "magic", "label": "Magia", "path": "packs/magic", "type": "Item", "system": "abf" },
+    { "name": "psychic-powers", "label": "Poderes Psíquicos", "path": "packs/psychic-powers", "type": "Item", "system": "abf" },
+    { "name": "advantages", "label": "Ventajas", "path": "packs/advantages", "type": "Item", "system": "abf" },
+    { "name": "disadvantages", "label": "Desventajas", "path": "packs/disadvantages", "type": "Item", "system": "abf" },
+    { "name": "ki-skills", "label": "Habilidades de Ki", "path": "packs/ki-skills", "type": "Item", "system": "abf" },
+    { "name": "martial-arts", "label": "Artes Marciales", "path": "packs/martial-arts", "type": "Item", "system": "abf" },
+    { "name": "metamagic", "label": "Metamagia", "path": "packs/metamagic", "type": "Item", "system": "abf" },
+    { "name": "summons", "label": "Invocaciones", "path": "packs/summons", "type": "Item", "system": "abf" }
+  ],
   "languages": [
     { "lang": "es", "name": "Español", "path": "lang/es.json" },
     { "lang": "en", "name": "English", "path": "lang/en.json" }
